@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package proto;
+enum PCK{
+    Default_ID=0;
+    C2S_Login_ID=1;
+    S2C_Login_ID=2;
+    C2S_GetInfo_ID=3;
+    S2C_GetInfo_ID=4;
+}
+message C2S_Login  {
+    string Name =1;
+    string Password=2;
+}
+message S2C_Login {
+    string Err =1;
+    string AccountId =2;
+}
+message C2S_GetInfo  {
+}
+message S2C_GetInfo {
+    int32 hp =1;
+    int32 mp =2;
+}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//db
+message IntAttr{
+    int32 k=1;
+    int64 v=2;
+}
+message StrAttr{
+    int32 k=1;
+    string v=2;
+}
+message RoleDbInfo{
+    int32 roleid=1;
+    repeated IntAttr intAttr=2;
+    repeated StrAttr strAttr=3;
+}
