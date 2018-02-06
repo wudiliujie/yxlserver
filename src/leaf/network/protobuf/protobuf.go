@@ -34,10 +34,11 @@ type MsgRaw struct {
 	msgRawData []byte
 }
 
-func NewProcessor() *Processor {
+func NewProcessor(maxid int) *Processor {
 	p := new(Processor)
 	p.littleEndian = false
 	p.msgID = make(map[reflect.Type]uint16)
+	p.msgInfo= make([]*MsgInfo,maxid)
 	return p
 }
 
@@ -61,7 +62,7 @@ func (p *Processor) Register(id uint16, msg proto.Message) uint16 {
 
 	i := new(MsgInfo)
 	i.msgType = msgType
-	p.msgInfo = append(p.msgInfo, i)
+	p.msgInfo[id] =i
 	//id := uint16(len(p.msgInfo) - 1)
 	p.msgID[msgType] = id
 	return id

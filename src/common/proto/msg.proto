@@ -7,6 +7,9 @@ enum PCK{
     S2C_Login_ID=2;
     C2S_GetInfo_ID=3;
     S2C_GetInfo_ID=4;
+
+
+    MAX_ID=100;
 }
 message C2S_Login  {
     string Name =1;

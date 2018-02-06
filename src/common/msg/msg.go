@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	Processor = protobuf.NewProcessor()
+	Processor = protobuf.NewProcessor(int( proto.PCK_MAX_ID))
 )
 
 func init() {
