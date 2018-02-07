@@ -5,19 +5,19 @@ import (
 	"common/proto"
 	"leaf/log"
 	"common/msg"
+	"common/errmsg"
 )
 
 func init() {
 	msg.Processor.SetHandler(&proto.S2C_Login{}, handleLogin)
 	msg.Processor.SetHandler(&proto.S2C_GetInfo{}, handleGetInfo)
-
 }
 
 func handleLogin(args []interface{}) {
 	recvMsg := args[0].(*proto.S2C_Login)
-	if recvMsg.Err != "" {
+	if recvMsg.Tag !=errmsg.SYS_SUCCESS {
 		Close()
-		log.Error("login is error: %v, please input login cmd", recvMsg.Err)
+		log.Error("login is error: %v, please input login cmd", recvMsg.Tag)
 		return
 	}
 	//

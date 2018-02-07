@@ -16,7 +16,7 @@ message C2S_Login  {
     string Password=2;
 }
 message S2C_Login {
-    string Err =1;
+    int32 tag =1;
     string AccountId =2;
 }
 message C2S_GetInfo  {

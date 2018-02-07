@@ -14,6 +14,7 @@ import (
 	"reflect"
 	"gameserver/db"
 	"strconv"
+	"common/errmsg"
 )
 
 var (
@@ -64,7 +65,7 @@ func handleLogin(args []interface{}){
 	}
 	player= players. CreatePlayer(accountid);
 	if player==nil{
-		sendMsg := &proto.S2C_Login{Err:"创建player错误"}
+		sendMsg := &proto.S2C_Login{Tag:errmsg.SYS_LOGIN_NOACCOUNT}
 		agent.WriteMsg(sendMsg)
 	}
 	player.Agent= agent;
@@ -82,19 +83,19 @@ func handleLogin(args []interface{}){
 func EnterRoomModule(player* players.Player){
 	module := room.GetBestModule()
 	if module == nil {
-		sendMsg := &proto.S2C_Login{Err:"room模块错误"}
+		sendMsg := &proto.S2C_Login{Tag:errmsg.SYS_LOGIN_NO_MODULE}
 		player.Agent.WriteMsg(sendMsg)
 		return
 	}
 	newArgs := []interface{}{module,player,func( err error){
 		log.Debug("进入模块成功:%v",module.Name)
 		if err==nil{
-			sendMsg := &proto.S2C_Login{Err:"",AccountId:strconv.Itoa(player.AccountId)}
+			sendMsg := &proto.S2C_Login{Tag:errmsg.SYS_SUCCESS,AccountId:strconv.Itoa(player.AccountId)}
 			(player.Agent).WriteMsg(sendMsg)
 
 		}else {
 			log.Debug(err.Error())
-			sendMsg := &proto.S2C_Login{Err:err.Error()}
+			sendMsg := &proto.S2C_Login{Tag:errmsg.SYS_LOGIN_ENTER_MODULE_ERROR}
 			player.Agent.WriteMsg(sendMsg)
 		}
 	}}

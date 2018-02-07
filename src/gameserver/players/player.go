@@ -56,6 +56,9 @@ func(player* Player) InitData(dbinfo *[]byte){
 	for _,v :=range info.StrAttr{
 		player.strAttr[v.K]=v.V;
 	}
+	if len(player.intAttr)==0{
+		player.onRoleCreate();
+	}
 	player.intAttr[1]=100;
 	//player.status=1
 }
@@ -73,5 +76,8 @@ func (player* Player) GetSaveData()*[]byte{
 	 	log.Error("序列化错误%v",err.Error())
 	 }
 	 return  &data;
+}
+func (player* Player) onRoleCreate(){
+	player.intAttr[1]=100;
 }
 
