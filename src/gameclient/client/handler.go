@@ -31,6 +31,12 @@ func handleLogin(args []interface{}) {
 func handleGetInfo(args []interface{}){
 	recvMsg := args[0].(*proto.S2C_GetInfo)
 	log.Debug("获取信息返回")
-	log.Debug("Hp:%v Mp:%v",recvMsg.Hp,recvMsg.Mp)
+	for _,v :=range recvMsg.IntAttr{
+		log.Debug("K:%v V:%v",v.K,v.V)
+	}
+	log.Debug("发送进入房间")
+	sendmsg:=&proto.C2S_EnterRoom{RoomType:0}
+	Client.WriteMsg(sendmsg)
+
 }
 

@@ -11,9 +11,12 @@ import (
 
 	"sync/atomic"
 	"fmt"
-	"gameserver/players"
+	"gameserver/room/players"
 	"leaf/gate"
 	"gameserver/db"
+	"github.com/kataras/iris/core/errors"
+	"common/proto"
+	"common/errmsg"
 )
 
 func NewModule(id int) *Module {
@@ -21,7 +24,7 @@ func NewModule(id int) *Module {
 	module := &Module{Skeleton: skeleton, ChanRPC: skeleton.ChanRPCServer}
 	module.Name = fmt.Sprintf("module%v", id)
 	module.roomInfoMap = map[string]*RoomInfo{}
-	module.playerMap = map[int]* players.Player{}
+	module.Id=id;
 	RegisterHandler(module.ChanRPC,module)
 	return module
 }
@@ -29,13 +32,14 @@ func NewModule(id int) *Module {
 type Module struct {
 	*module.Skeleton
 	ChanRPC *chanrpc.Server
-
+	Id int
 	Name          string
 	clientCount   int32
 	roomInfoMap   map[string]*RoomInfo
-	playerMap     map[int]* players.Player
 }
-
+func (m* Module) GetId() int{
+	return m.Id
+}
 func (m *Module) OnInit() {
 	m.Skeleton.AfterFunc(time.Duration(conf.DestroyRoomInterval/10), m.checkDestroyRoom)
 }
@@ -88,18 +92,32 @@ func (m *Module) NewRoom(name string) *RoomInfo {
 	return room
 }
 
-func (m *Module) PlayerEnter(player *players.Player) {
-	m.playerMap[1]= player;
-	player.Agent.SetChanRPC(m.ChanRPC)
-}
-func (m *Module) GetPlayer(roleId int)* players.Player {
-	return m.playerMap[roleId];
+
+func (m *Module)HandleMsgData(args []interface{})error {
+	log.Debug("%v处理消息",m.Name)
+	a:= args[0].(gate.Agent)
+	if a.Gate().Processor != nil {
+		data := args[1].([]byte)
+		msg, err := a.Gate().Processor.Unmarshal(data)
+		if err != nil {
+			log.Error("解析包错误:%v",err)
+		}
+		roleid:= a.UserData().(int32)
+		player:= players.GetPlayer(roleid)
+		if(player!=nil){
+			err =a.Gate().Processor.Route(msg, player)
+			if err != nil {
+				log.Error("解析包错误1:%v",err)
+			}
+		}
+	}
+	return  nil
 }
 
-func (m *Module) CloseAgent(args []interface{})(error){
+func (m *Module) CloseAgent(args []interface{})error{
 	agent := args[0].(gate.Agent)
-	roleId:= agent.UserData().(int);
-	player:=m.GetPlayer(roleId);
+	roleId:= agent.UserData().(int32);
+	player:=players.GetPlayer(roleId);
 	if player!=nil{
 		data:= player.GetSaveData()
 		m.Skeleton.Go(func(){
@@ -108,8 +126,40 @@ func (m *Module) CloseAgent(args []interface{})(error){
 			log.Debug("保存成功");
 		});
 	}
+	m.AddClientCount(-1)
 	return  nil;
 }
+//登录模块
+func (m* Module) HandleLoginModule(args[] interface{}) error{
+	roleid:=args[0].(int32)
+	agent := args[1].(gate.Agent)
+
+	player:= players.GetPlayer(roleid)
+	if player!=nil {
+		return  errors.New("帐号重复登录");
+	}
+	player = players.CreatePlayer(roleid,agent);
+	if player==nil{
+		return  errors.New("帐号重复登录1");
+	}
+
+	agent.SetChanRPC(m.ChanRPC)
+
+	var data []byte;
+	m.Skeleton.Go(func() {
+		  db.ReadRoleInfo(roleid,&data)
+	},func(){
+		log.Debug("用户读取数据完成")
+		player.InitData(&data);
+		//发送登录成功
+		sendmsg:=&proto.S2C_Login{ Tag:errmsg.SYS_SUCCESS}
+		player.SendMsg(sendmsg)
+	})
+
+	return  nil
+}
+
+
 
 
 type RoomInfo struct {

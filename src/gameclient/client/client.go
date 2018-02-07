@@ -98,7 +98,7 @@ func Close() {
 }
 
 func Start(addr string)  {
-	Close()
+	//Close()
 
 	client := new(network.TCPClient)
 	client.Addr = addr

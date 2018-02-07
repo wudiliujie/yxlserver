@@ -11,9 +11,12 @@ import (
 	"gameserver/room"
 	"leaf/module"
 	"gameserver/gate"
+	"math/rand"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	argsLen := len(os.Args)
 	if argsLen < 2 {
 		log.Fatal("os args of len(%v) less than 2", argsLen)

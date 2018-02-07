@@ -7,8 +7,8 @@ enum PCK{
     S2C_Login_ID=2;
     C2S_GetInfo_ID=3;
     S2C_GetInfo_ID=4;
-
-
+    C2S_EnterRoom_ID=5;
+    S2C_EnterRoom_ID=6;
     MAX_ID=100;
 }
 message C2S_Login  {
@@ -22,12 +22,27 @@ message S2C_Login {
 message C2S_GetInfo  {
 }
 message S2C_GetInfo {
-    int32 hp =1;
-    int32 mp =2;
+    repeated IntAttr intAttr=2;
+    repeated StrAttr strAttr=3;
+}
+//进入方将
+message C2S_EnterRoom  {
+    int32 roomType=1;
+}
+message S2C_EnterRoom {
+    int32 tag=1;
+    int32 roomId=2;
 }
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 //db
+enum PLAYER_ATTR{
+    GOLD=0; //金币
+    DIAMOND=1; //钻石
+    LEVEL=2;   //等级
+    EXP=3;      //经验
+}
+
 message IntAttr{
     int32 k=1;
     int64 v=2;

@@ -17,6 +17,8 @@ type ClientModule struct {
 
 func (m *ClientModule) OnInit() {
 	m.Skeleton = skeleton
+	args:=[]interface{}{"a","b"}
+	login(args)
 }
 
 func (m *ClientModule) OnDestroy() {

@@ -17,6 +17,7 @@ type err struct {
 type Errslice struct {
 	Errs []err
 }
+
 func main(){
 	args := os.Args //获取用户输入的所有参数
 	errpath :=""

@@ -6,6 +6,7 @@ import (
 	"leaf/module"
 	"math"
 	"leaf/chanrpc"
+	"gameserver/center"
 )
 
 var (
@@ -22,6 +23,7 @@ func CreateModules() []module.Module {
 		module := internal.NewModule(i)
 		modules = append(modules, module)
 		results = append(results, module)
+		center.RegisterRoomModule(module)
 	}
 	return results
 }

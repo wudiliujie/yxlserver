@@ -12,17 +12,15 @@ func GetDb() *sql.DB{
 	}
 	return db;
 }
-func ReadRoleInfo(roleId int) *[]byte {
+func ReadRoleInfo(roleId int32,data *[]byte)error {
 	db := GetDb();
 	 row:= db.QueryRow("select role_data from user_account where roleid=?",roleId)
 	 if(row!=nil){
-		 var data []byte
 	 	row.Scan(&data);
-	 	return  &data;
 	 }
 	return  nil;
 }
-func SaveRoleInfo(roleId int,data *[]byte){
+func SaveRoleInfo(roleId int32,data *[]byte){
 	db:=GetDb();
 	_, err:= db.Exec("insert into user_account (roleid,role_data)values(?,?)",roleId,data);
 	if(err!=nil){
