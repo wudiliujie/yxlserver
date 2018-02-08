@@ -11,7 +11,6 @@ import (
 	"common/errmsg"
 	"math/rand"
 	"consts"
-	"gameserver/center/rooms"
 )
 
 var (
@@ -27,8 +26,13 @@ func init() {
 	ChanRPC.Register("handleMsgData",common.HandleMsgData)
 	ChanRPC.Register("NewAgent",rpcNewAgent)
 	ChanRPC.Register("CloseAgent",rpcCloseAgent)
-	ChanRPC.Register(consts.Center_Rpc_GetBestRoomId,rooms.GetBestRoomId)
-	ChanRPC.Register(consts.Center_Rpc_GetModuleByRoomId,rooms.GetModuleByRoomId)
+	ChanRPC.Register(consts.Center_Rpc_GetBestRoomId,getBestRoomId)
+	ChanRPC.Register(consts.Center_Rpc_GetModuleByRoomId,getModuleByRoomId)
+	ChanRPC.Register(consts.Center_Rpc_GetNewRoomId,getNewRoomId)
+
+	ChanRPC.Register(consts.Center_Rpc_OnCreateRoom,onCreateRoom)
+	ChanRPC.Register(consts.Center_Rpc_OnRoomNumChange,onRoomNumChange)
+
 	msg.Processor.SetHandler(&proto.C2S_Login{}, handleLogin)
 }
 func rpcNewAgent(args []interface {}) {
@@ -51,7 +55,7 @@ func handleLogin(args []interface{}){
 	sendMsg := &proto.S2C_Login{Tag:errmsg.SYS_LOGIN_NOACCOUNT}
 	sendMsg.Tag=errmsg.SYS_SUCCESS
 
-	player:= PlayerManager.GetPlayer(accountid);
+	player:= GetPlayer(accountid);
 	if player!=nil{ //
 		//已经在线,替换agent
 		//player.ReplaceAgent(agent);
@@ -69,7 +73,7 @@ func handleLogin(args []interface{}){
 	skeleton.AsynCall(roomModule.GetChanRPC(),consts.Room_Rpc_LoginModule,accountid,agent, func(error) {
 	 	log.Debug("登录成功")
 		//通知主线程登录成功
-		PlayerManager.OnPlayerLoginSuccess(accountid,roomModule)
+		OnPlayerLoginSuccess(accountid,roomModule)
 	 })
 
 }

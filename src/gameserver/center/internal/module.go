@@ -6,13 +6,11 @@ import (
 	"gameserver/gate"
 	"gameserver/common"
 	"math"
-	"gameserver/center/players"
 )
 
 var (
 	skeleton = base.NewSkeleton()
 	ChanRPC  = skeleton.ChanRPCServer
-	PlayerManager = players.NewPlayerManager()
 	roomModule = make(map[int]common.RoomModule)
 )
 

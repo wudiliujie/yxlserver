@@ -1,11 +1,8 @@
 package internal
 
 import (
-	"errors"
-	"gopkg.in/mgo.v2/bson"
 	"leaf/chanrpc"
 	"leaf/log"
-	"gameserver/room/players"
 	"common/msg"
 	"common/proto"
 	"consts"
@@ -24,45 +21,16 @@ func RegisterHandler(chanRPC *chanrpc.Server,module *Module) {
 func handleGetInfo(args[] interface{}){
 	log.Debug("获取用户信息")
 	//recvMsg:= args[0].(*proto.C2S_GetInfo)
-	player:=args[1].(*players.Player)
-	player.SendRoleInfo()
+	hArgs:=args[1].(*HandleArgs)
+	hArgs.P.SendRoleInfo()
 
 }
 //进入房间
 func handleEnterRoom(args[] interface{}){
+	log.Debug("收到进入房间请求")
 	recvMsg:= args[0].(*proto.C2S_EnterRoom)
-	player:=args[1].(*players.Player)
-	sendmsg:=&proto.S2C_EnterRoom{}
-	sendmsg.Tag= player.EnterRoom(consts.ROOM_TYPE(recvMsg.RoomType))
-	player.SendMsg(sendmsg)
+	hArgs:=args[1].(*HandleArgs)
+	sendMsg:=&proto.S2C_EnterRoom{}
+	sendMsg.Tag,sendMsg.RoomId= hArgs.M.EnterRoom(hArgs.P, consts.ROOM_TYPE(recvMsg.RoomType))
+	hArgs.P.SendMsg(sendMsg)
 }
-
-func LeaveRoom(args []interface{}) error {
-	module := args[0].(*Module)
-	roomName := args[1].(string)
-	userId := args[2].(bson.ObjectId)
-
-	roomInfo := module.GetRoomInfo(roomName)
-	if roomInfo == nil {
-		return errors.New("this room is not exist")
-	}
-
-	if !roomInfo.LeaveRoom(userId) {
-		return errors.New("you is not in this room")
-	}
-	return nil
-}
-
-func SendMsg(args []interface{}) error {
-	module := args[0].(*Module)
-	roomName := args[1].(string)
-	//userId := args[2].(bson.ObjectId)
-	//msgContent := args[3].([]byte)
-
-	roomInfo := module.GetRoomInfo(roomName)
-	if roomInfo == nil {
-		return errors.New("this room is not exist")
-	}
-	return  nil;
-}
-

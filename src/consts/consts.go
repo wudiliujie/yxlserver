@@ -12,6 +12,10 @@ const (
 const(
 	Center_Rpc_GetBestRoomId="GetBestRoomId" //获取一个房间编号
 	Center_Rpc_GetModuleByRoomId="GetModuleByRoomId" //根据房间获取module
+	Center_Rpc_GetNewRoomId="GetNewRoomId" //获取新的房间编号
+	Center_Rpc_OnCreateRoom="OnCreateRoom" //当创建房间
+	Center_Rpc_OnRoomNumChange="OnRoomNumChange" //当房间人数发生变化
+
 	Center_Rpc_OnPlayerChangeModule="OnPlayerChangeModule" //player module发生变化
 
 	Room_Rpc_LoginModule="LoginModule" //进入module

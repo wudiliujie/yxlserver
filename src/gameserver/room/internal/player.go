@@ -1,4 +1,4 @@
-package players
+package internal
 
 import (
 	"leaf/gate"
@@ -12,35 +12,35 @@ import (
 )
 
 var (
-	playerPool      = make(map[int32]*Player)
+
 )
 
 
 type Player struct {
-	roleId int32
+	RoleId int32
 	intAttr  map[int32]int64
 	strAttr  map[int32]string
 	Agent gate.Agent
 	Module  common.RoomModule
 }
-func GetPlayer(roleId int32)(*Player){
-	player, ok := playerPool[roleId]
+func (m *Module)GetPlayer(roleId int32)(*Player){
+	player, ok := m.playerMap[roleId]
 	if ok  {
 		return  player;
 	}
 	return  nil;
 }
-func CreatePlayer(roleId int32,agent gate.Agent)(*Player){
-	player, ok := playerPool[roleId]
+func (m *Module)CreatePlayer(roleId int32,agent gate.Agent)(*Player){
+	player, ok :=  m.playerMap[roleId]
 	if ok  {
 		return  nil;
 	}
 	player = new(Player);
 	player.intAttr= make(map[int32]int64)
 	player.strAttr= make(map[int32]string)
-	player.roleId= roleId;
+	player.RoleId= roleId;
 	player.Agent=agent
-	playerPool[roleId]= player;
+	m.playerMap[roleId]= player;
 	return  player;
 }
 
@@ -94,11 +94,11 @@ func (player* Player)SendRoleInfo(){
 func (player* Player) SendMsg(msg interface{} ){
 	player.Agent.WriteMsg(msg)
 }
-func (player*Player) EnterRoom(roomType consts.ROOM_TYPE) int32{
+func (m *Module) EnterRoom(player *Player, roomType consts.ROOM_TYPE) (int32,int32){
 	args,err:=center.ChanRPC.Call1(consts.Center_Rpc_GetBestRoomId,roomType)
 	if err!=nil {
 		log.Error("获取房间系统错误:%v",err)
-		return errmsg.SYS_ROOM_SYSTEM_ERROR
+		return errmsg.SYS_ROOM_SYSTEM_ERROR,0
 	}
 	roomId:= args.(int32)
 	if roomId!=0{
@@ -107,7 +107,7 @@ func (player*Player) EnterRoom(roomType consts.ROOM_TYPE) int32{
 		module,err := center.ChanRPC.Call1(consts.Center_Rpc_GetModuleByRoomId,roomId)
 		if err!=nil{
 			log.Error("获取房间所在的MODULE系统错误:%v>>.%v",roomId,err)
-			return errmsg.SYS_ROOM_SYSTEM_ERROR
+			return errmsg.SYS_ROOM_SYSTEM_ERROR,0
 		}
 		if player.Module==module{ //本模块内
 
@@ -116,12 +116,21 @@ func (player*Player) EnterRoom(roomType consts.ROOM_TYPE) int32{
 
 		}
 
-
 	}else {
 		//创建新的房间
 		log.Debug("创建新房间");
-
+		//获取新房间编号
+		args,err:=center.ChanRPC.Call1(consts.Center_Rpc_GetNewRoomId)
+		if err!=nil {
+			log.Error("获取房间系统错误:%v",err)
+			return errmsg.SYS_ROOM_SYSTEM_ERROR,0
+		}
+		roomId=args.(int32)
+		room:=m.CreateRoom(roomId,roomType)
+		if room==nil{
+			log.Error("创建房间为空")
+			return errmsg.SYS_ROOM_SYSTEM_ERROR,0
+		}
 	}
-
-	return  errmsg.SYS_SUCCESS
+	return  errmsg.SYS_SUCCESS,roomId
 }

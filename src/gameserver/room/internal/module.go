@@ -11,31 +11,41 @@ import (
 
 	"sync/atomic"
 	"fmt"
-	"gameserver/room/players"
 	"leaf/gate"
 	"gameserver/db"
 	"github.com/kataras/iris/core/errors"
 	"common/proto"
 	"common/errmsg"
+	"leaf/network"
+	"common/msg"
+
 )
 
 func NewModule(id int) *Module {
 	skeleton := base.NewSkeleton()
 	module := &Module{Skeleton: skeleton, ChanRPC: skeleton.ChanRPCServer}
 	module.Name = fmt.Sprintf("module%v", id)
-	module.roomInfoMap = map[string]*RoomInfo{}
+	module.roomMap = map[int32]*RoomData{}
+	module.playerMap =map[int32]*Player{}
 	module.Id=id;
+	module.Processor=msg.Processor
 	RegisterHandler(module.ChanRPC,module)
 	return module
 }
 
+type HandleArgs struct{
+	M *Module
+	P * Player
+}
 type Module struct {
 	*module.Skeleton
 	ChanRPC *chanrpc.Server
 	Id int
 	Name          string
 	clientCount   int32
-	roomInfoMap   map[string]*RoomInfo
+	roomMap map[int32]* RoomData
+	playerMap  map[int32]*Player
+	Processor  network.Processor
 }
 func (m* Module) GetId() int{
 	return m.Id
@@ -49,7 +59,7 @@ func (m *Module) OnDestroy() {
 }
 
 func (m *Module) checkDestroyRoom() {
-	destroyRooms := []string{}
+	/*destroyRooms := []string{}
 	nowTime := time.Now().Unix()
 	for roomName, roomInfo := range m.roomInfoMap {
 		if roomInfo.CheckDestroy(nowTime) {
@@ -64,7 +74,7 @@ func (m *Module) checkDestroyRoom() {
 		//cluster.Go("world", "DestroyRoom", destroyRooms)
 		log.Debug("%v rooms is destroy in %v", destroyRooms, m.Name)
 	}
-	m.Skeleton.AfterFunc(time.Duration(conf.DestroyRoomInterval/10), m.checkDestroyRoom)
+	m.Skeleton.AfterFunc(time.Duration(conf.DestroyRoomInterval/10), m.checkDestroyRoom)*/
 }
 
 func (m *Module) GetChanRPC() *chanrpc.Server {
@@ -80,19 +90,6 @@ func (m *Module) AddClientCount(delta int32) {
 	//common.AddClientCount(delta)
 }
 
-func (m *Module) GetRoomInfo(roomName string) *RoomInfo {
-	return m.roomInfoMap[roomName]
-}
-
-func (m *Module) NewRoom(name string) *RoomInfo {
-	room := &RoomInfo{name: name}
-	room.module = m
-	room.userServerMap = map[bson.ObjectId]string{}
-	m.roomInfoMap[name] = room
-	return room
-}
-
-
 func (m *Module)HandleMsgData(args []interface{})error {
 	log.Debug("%v处理消息",m.Name)
 	a:= args[0].(gate.Agent)
@@ -103,9 +100,10 @@ func (m *Module)HandleMsgData(args []interface{})error {
 			log.Error("解析包错误:%v",err)
 		}
 		roleid:= a.UserData().(int32)
-		player:= players.GetPlayer(roleid)
+		player:= m.GetPlayer(roleid)
+		args:=&HandleArgs{M:m,P:player}
 		if(player!=nil){
-			err =a.Gate().Processor.Route(msg, player)
+			err =a.Gate().Processor.Route(msg, args)
 			if err != nil {
 				log.Error("解析包错误1:%v",err)
 			}
@@ -114,10 +112,12 @@ func (m *Module)HandleMsgData(args []interface{})error {
 	return  nil
 }
 
+
+
 func (m *Module) CloseAgent(args []interface{})error{
 	agent := args[0].(gate.Agent)
 	roleId:= agent.UserData().(int32);
-	player:=players.GetPlayer(roleId);
+	player:=m.GetPlayer(roleId);
 	if player!=nil{
 		data:= player.GetSaveData()
 		m.Skeleton.Go(func(){
@@ -134,11 +134,11 @@ func (m* Module) HandleLoginModule(args[] interface{}) error{
 	roleid:=args[0].(int32)
 	agent := args[1].(gate.Agent)
 
-	player:= players.GetPlayer(roleid)
+	player:= m.GetPlayer(roleid)
 	if player!=nil {
 		return  errors.New("帐号重复登录");
 	}
-	player = players.CreatePlayer(roleid,agent);
+	player = m.CreatePlayer(roleid,agent);
 	if player==nil{
 		return  errors.New("帐号重复登录1");
 	}

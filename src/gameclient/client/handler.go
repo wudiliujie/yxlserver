@@ -11,6 +11,7 @@ import (
 func init() {
 	msg.Processor.SetHandler(&proto.S2C_Login{}, handleLogin)
 	msg.Processor.SetHandler(&proto.S2C_GetInfo{}, handleGetInfo)
+	msg.Processor.SetHandler(&proto.S2C_EnterRoom{}, handleEnterRoom)
 }
 
 func handleLogin(args []interface{}) {
@@ -37,6 +38,13 @@ func handleGetInfo(args []interface{}){
 	log.Debug("发送进入房间")
 	sendmsg:=&proto.C2S_EnterRoom{RoomType:0}
 	Client.WriteMsg(sendmsg)
+}
+func handleEnterRoom(args[]interface{}){
+	recvMsg := args[0].(*proto.S2C_EnterRoom)
+	log.Debug("登录房间结果%v",recvMsg.Tag)
 
+	if recvMsg.Tag==errmsg.SYS_SUCCESS{
+		log.Debug("进入房间编号:%v",recvMsg.RoomId)
+	}
 }
 
