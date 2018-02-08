@@ -11,10 +11,6 @@ import (
 	"gameserver/center"
 )
 
-var (
-
-)
-
 
 type Player struct {
 	RoleId int32
@@ -40,9 +36,29 @@ func (m *Module)CreatePlayer(roleId int32,agent gate.Agent)(*Player){
 	player.strAttr= make(map[int32]string)
 	player.RoleId= roleId;
 	player.Agent=agent
-	m.playerMap[roleId]= player;
+	player.Module=m
+	//m.playerMap[roleId]= player;
 	return  player;
 }
+//进入模块
+func (m* Module)AddPlayer(player *Player){
+	m.playerMap[player.RoleId]=player
+	m.AddClientCount(1)
+}
+
+func (m* Module)RemovePlayer(roleId int32){
+	delete(m.playerMap, roleId)
+	m.AddClientCount(-1)
+}
+//进入模块
+func (m* Module)HandleEnterModule(args[] interface{})error{
+	player:= args[0].(*Player)
+	m.AddPlayer(player)
+	return  nil
+}
+
+
+
 
 func (player* Player)ReplaceAgent(agent gate.Agent){
 	if player.Agent!=nil{
@@ -104,18 +120,30 @@ func (m *Module) EnterRoom(player *Player, roomType consts.ROOM_TYPE) (int32,int
 	if roomId!=0{
 		//进入
 		//获取房间所在的module
-		module,err := center.ChanRPC.Call1(consts.Center_Rpc_GetModuleByRoomId,roomId)
+		args,err := center.ChanRPC.Call1(consts.Center_Rpc_GetModuleByRoomId,roomId)
 		if err!=nil{
 			log.Error("获取房间所在的MODULE系统错误:%v>>.%v",roomId,err)
 			return errmsg.SYS_ROOM_SYSTEM_ERROR,0
 		}
-		if player.Module==module{ //本模块内
-
-
+		module:=args.(common.RoomModule)
+		if player.Module.GetId()==module.GetId(){ //本模块内
+			//直接添加房间
+			room:=m.GetRoom(roomId)
+			if room==nil{
+				log.Error("本模块房间不存在")
+				return errmsg.SYS_ROOM_SYSTEM_ERROR,0
+			}
+			return room.AddPlayer(player),0
 		}else{ //切换模块
-
+			ret:=player.ChangeModule(m,module)
+			if ret==errmsg.SYS_SUCCESS{
+				err = module.GetChanRPC().Call0(consts.Room_Rpc_EnterModuleRoom,player.RoleId,roomId)
+				if(err!=nil){
+					log.Error("进入模块房间失败:"+err.Error())
+					return  errmsg.SYS_ROOM_SYSTEM_ERROR,0
+				}
+			}
 		}
-
 	}else {
 		//创建新的房间
 		log.Debug("创建新房间");
@@ -131,6 +159,16 @@ func (m *Module) EnterRoom(player *Player, roomType consts.ROOM_TYPE) (int32,int
 			log.Error("创建房间为空")
 			return errmsg.SYS_ROOM_SYSTEM_ERROR,0
 		}
+		room.AddPlayer(player)
 	}
 	return  errmsg.SYS_SUCCESS,roomId
+}
+func (player* Player) ChangeModule(old *Module,new common.RoomModule)int32{
+	err:= new.GetChanRPC().Call0(consts.Room_Rpc_EnterModule,player)
+	if(err!=nil){
+		log.Error("切换模块错误")
+		return  errmsg.SYS_ROOM_SYSTEM_ERROR;
+	}
+	old.RemovePlayer(player.RoleId)
+	return  errmsg.SYS_SUCCESS
 }

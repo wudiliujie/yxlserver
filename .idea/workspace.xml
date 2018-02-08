@@ -2,20 +2,20 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/cmd/err/err.go" line="44" mnemonic="5" />
+    <bookmark url="file://$PROJECT_DIR$/src/gameserver/room/internal" />
+    <bookmark url="file://$PROJECT_DIR$/src/gameclient" />
+    <bookmark url="file://$PROJECT_DIR$/src/gameserver/center/internal/room.go" line="33" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/gameserver/room/internal/room.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/consts/consts.go" afterPath="$PROJECT_DIR$/src/consts/consts.go" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/client/handler.go" afterPath="$PROJECT_DIR$/src/gameclient/client/handler.go" />
       <change beforePath="$PROJECT_DIR$/src/gameserver/center/internal/handler.go" afterPath="$PROJECT_DIR$/src/gameserver/center/internal/handler.go" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/center/internal/module.go" afterPath="$PROJECT_DIR$/src/gameserver/center/internal/module.go" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/center/players/player.go" afterPath="$PROJECT_DIR$/src/gameserver/center/internal/player.go" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/center/rooms/room.go" afterPath="$PROJECT_DIR$/src/gameserver/center/internal/room.go" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/center/internal/room.go" afterPath="$PROJECT_DIR$/src/gameserver/center/internal/room.go" />
       <change beforePath="$PROJECT_DIR$/src/gameserver/room/internal/handler.go" afterPath="$PROJECT_DIR$/src/gameserver/room/internal/handler.go" />
       <change beforePath="$PROJECT_DIR$/src/gameserver/room/internal/module.go" afterPath="$PROJECT_DIR$/src/gameserver/room/internal/module.go" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/room/players/player.go" afterPath="$PROJECT_DIR$/src/gameserver/room/internal/player.go" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/room/internal/player.go" afterPath="$PROJECT_DIR$/src/gameserver/room/internal/player.go" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/room/internal/room.go" afterPath="$PROJECT_DIR$/src/gameserver/room/internal/room.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,8 +29,8 @@
       <file leaf-file-name="player.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/player.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="128" column="23" lean-forward="false" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
+            <state relative-caret-position="455">
+              <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
               <folding>
                 <element signature="n#!!block;n#GetSaveData#0" expanded="false" />
                 <element signature="n#!!block;n#onRoleCreate#0" expanded="false" />
@@ -43,30 +43,18 @@
       <file leaf-file-name="handler.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/handler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding>
-                <element signature="e#18#164#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="consts.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/consts/consts.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="30" />
+            <state relative-caret-position="208">
+              <caret line="28" column="61" lean-forward="false" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="interface.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gameserver/common/interface.go">
+      <file leaf-file-name="builtin.go" pinned="false" current-in-tab="false">
+        <entry file="file://D:/go/src/builtin/builtin.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="208">
+              <caret line="154" column="5" lean-forward="false" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -75,18 +63,20 @@
       <file leaf-file-name="room.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/room.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="32" column="85" lean-forward="false" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
-              <folding />
+            <state relative-caret-position="322">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="e#18#76#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="room.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/room.go">
+      <file leaf-file-name="gate.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/leaf/gate/gate.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+            <state relative-caret-position="208">
+              <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,18 +85,40 @@
       <file leaf-file-name="module.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/module.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="44" column="15" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="15" />
+            <state relative-caret-position="284">
+              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+              <folding>
+                <element signature="e#18#272#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="player.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/player.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="module.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="room.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/room.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/module.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+            <state relative-caret-position="512">
+              <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
               <folding>
                 <element signature="e#18#110#0" expanded="true" />
               </folding>
@@ -114,21 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roommodule.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gameserver/common/roommodule.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="handler.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/handler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="33" column="45" lean-forward="false" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+            <state relative-caret-position="208">
+              <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
               <folding>
                 <element signature="e#18#96#0" expanded="true" />
               </folding>
@@ -147,25 +149,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>获取用户信息</find>
-      <find>getbe</find>
-      <find>rou</find>
-      <find>gameserver/room/internal</find>
-      <find>gameserver/room/players</find>
-      <find>GetBestModule</find>
-      <find>GetClientCount</find>
-      <find>imports gameserver/room</find>
-      <find>gameserver/room</find>
-      <find>gameserver/center/internal</find>
-      <find>gameserver/center</find>
-      <find>AsynCall</find>
-      <find>AsynCal</find>
-      <find>OnPlayerLoginSuccess</find>
-      <find>PlayerManager</find>
-      <find>Ret</find>
       <find>HandleLoginModule</find>
       <find>LoginModule</find>
-      <find>Room_Rpc_LoginModule</find>
       <find>登录成功</find>
       <find>return type</find>
       <find>HandleMsgData</find>
@@ -176,7 +161,24 @@
       <find>send on closed channel</find>
       <find>exec</find>
       <find>Processor</find>
+      <find>Center_Rpc_GetModuleByRoomId</find>
+      <find>HandleEnterModule</find>
+      <find>create</find>
+      <find>CreatePlayer</find>
+      <find>createp</find>
+      <find>enterroom</find>
       <find>clientCount</find>
+      <find>AddClientCount</find>
+      <find>处理消息</find>
+      <find>Room_Rpc_LoginModule</find>
+      <find>EnterModuleRoom</find>
+      <find>gameserver/room</find>
+      <find>进入模块房间失败</find>
+      <find>Room_Rpc_EnterModule</find>
+      <find>Room_Rpc_EnterModuleRoom</find>
+      <find>Center_Rpc_GetBestRoomId</find>
+      <find>onRoomNumChange</find>
+      <find>onPlayerEnter</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -247,16 +249,16 @@
         <option value="$PROJECT_DIR$/src/gameserver/room/players/player.go" />
         <option value="$PROJECT_DIR$/src/leaf/network/protobuf/protobuf.go" />
         <option value="$PROJECT_DIR$/src/gameserver/center/rooms/room.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/room/internal/module.go" />
         <option value="$PROJECT_DIR$/src/gameclient/client/handler.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/room/internal/player.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/room/internal/handler.go" />
         <option value="$PROJECT_DIR$/src/gameserver/center/internal/module.go" />
         <option value="$PROJECT_DIR$/src/gameserver/center/internal/player.go" />
         <option value="$PROJECT_DIR$/src/consts/consts.go" />
+        <option value="$PROJECT_DIR$/src/gameserver/room/internal/handler.go" />
+        <option value="$PROJECT_DIR$/src/gameserver/center/internal/room.go" />
         <option value="$PROJECT_DIR$/src/gameserver/room/internal/room.go" />
         <option value="$PROJECT_DIR$/src/gameserver/center/internal/handler.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/center/internal/room.go" />
+        <option value="$PROJECT_DIR$/src/gameserver/room/internal/module.go" />
+        <option value="$PROJECT_DIR$/src/gameserver/room/internal/player.go" />
       </list>
     </option>
   </component>
@@ -306,19 +308,6 @@
               <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
               <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gameclient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gameclient" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gameserver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -341,13 +330,6 @@
               <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gameserver" type="462c0819:PsiDirectoryNode" />
-              <item name="gate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
               <item name="room" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -357,48 +339,6 @@
               <item name="gameserver" type="462c0819:PsiDirectoryNode" />
               <item name="room" type="462c0819:PsiDirectoryNode" />
               <item name="internal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="leaf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="leaf" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="leaf" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-              <item name="protobuf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="leaf" type="462c0819:PsiDirectoryNode" />
-              <item name="recordfile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="leaf" type="462c0819:PsiDirectoryNode" />
-              <item name="timer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="leaf" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -556,12 +496,21 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="102" />
+      <option name="time" value="118" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="roomMap" language="go" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>roomMap</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>roomModule</expression-string>
         <language-id>go</language-id>
@@ -685,14 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/go/src/builtin/builtin.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="74" column="5" lean-forward="false" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/room.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -782,14 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/gate/gate.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -894,48 +827,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/chanrpc/chanrpc.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="189" column="17" lean-forward="false" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/player.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="21" column="16" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#18#62#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gameclient/client/interface.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/player.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="128" column="23" lean-forward="false" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!block;n#GetSaveData#0" expanded="false" />
-            <element signature="n#!!block;n#onRoleCreate#0" expanded="false" />
-            <element signature="n#!!block;n#SendRoleInfo#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/module.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="44" column="15" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -948,65 +843,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/common/roommodule.go">
+    <entry file="file://$PROJECT_DIR$/src/leaf/chanrpc/chanrpc.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        <state relative-caret-position="230">
+          <caret line="189" column="17" lean-forward="false" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/module.go">
+    <entry file="file://$PROJECT_DIR$/src/gameserver/common/roommodule.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-          <folding>
-            <element signature="e#18#110#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="76">
+          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/consts/consts.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="30" />
+        <state relative-caret-position="418">
+          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/room.go">
+    <entry file="file://D:/go/src/builtin/builtin.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="32" column="85" lean-forward="false" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
+        <state relative-caret-position="208">
+          <caret line="154" column="5" lean-forward="false" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/player.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leaf/gate/gate.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/handler.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="33" column="45" lean-forward="false" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+        <state relative-caret-position="208">
+          <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
           <folding>
             <element signature="e#18#96#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/module.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding>
+            <element signature="e#18#272#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/handler.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="208">
+          <caret line="28" column="61" lean-forward="false" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/player.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
           <folding>
-            <element signature="e#18#164#0" expanded="true" />
+            <element signature="n#!!block;n#GetSaveData#0" expanded="false" />
+            <element signature="n#!!block;n#onRoleCreate#0" expanded="false" />
+            <element signature="n#!!block;n#SendRoleInfo#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameserver/room/internal/room.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#18#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/room.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+        <state relative-caret-position="132">
+          <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameserver/center/internal/module.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+          <folding>
+            <element signature="e#18#110#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

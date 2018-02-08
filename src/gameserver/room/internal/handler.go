@@ -13,6 +13,9 @@ func RegisterHandler(chanRPC *chanrpc.Server,module *Module) {
 	chanRPC.Register("CloseAgent", module.CloseAgent)
 	chanRPC.Register("handleMsgData",module.HandleMsgData)
 	chanRPC.Register(consts.Room_Rpc_LoginModule,module.HandleLoginModule)
+	chanRPC.Register(consts.Room_Rpc_EnterModule,module.HandleEnterModule)
+	chanRPC.Register(consts.Room_Rpc_EnterModuleRoom,module.EnterModuleRoom)
+
 	msg.Processor.SetHandler(&proto.C2S_GetInfo{}, handleGetInfo)
 	msg.Processor.SetHandler(&proto.C2S_EnterRoom{}, handleEnterRoom)
 

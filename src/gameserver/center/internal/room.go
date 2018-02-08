@@ -3,6 +3,7 @@ package internal
 import (
 	"gameserver/common"
 	"consts"
+	"github.com/kataras/iris/core/errors"
 )
 
 
@@ -35,7 +36,12 @@ func getBestRoomId(args []interface{}) (interface{},error){
 	return  id,nil
 }
 func getModuleByRoomId(args[] interface{})(interface{},error){
-	return  nil,nil
+	roomId:=args[0].(int32)
+	room:=GetRoom(roomId)
+	if room==nil {
+		return  nil,errors.New("房间的module为空")
+	}
+	return  room.Module,nil;
 }
 func GetRoom(roomId int32) *RoomData{
 	room, ok := roomMap[roomId]

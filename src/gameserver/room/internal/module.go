@@ -4,7 +4,6 @@ import (
 	"leaf/module"
 	"gameserver/base"
 	"leaf/chanrpc"
-	"gopkg.in/mgo.v2/bson"
 	"leaf/log"
 	"time"
 	"gameserver/conf"
@@ -18,7 +17,6 @@ import (
 	"common/errmsg"
 	"leaf/network"
 	"common/msg"
-
 )
 
 func NewModule(id int) *Module {
@@ -100,6 +98,7 @@ func (m *Module)HandleMsgData(args []interface{})error {
 			log.Error("解析包错误:%v",err)
 		}
 		roleid:= a.UserData().(int32)
+		log.Error("包:%v",msg)
 		player:= m.GetPlayer(roleid)
 		args:=&HandleArgs{M:m,P:player}
 		if(player!=nil){
@@ -125,8 +124,8 @@ func (m *Module) CloseAgent(args []interface{})error{
 		}, func() {
 			log.Debug("保存成功");
 		});
+		m.RemovePlayer(player.RoleId)
 	}
-	m.AddClientCount(-1)
 	return  nil;
 }
 //登录模块
@@ -142,7 +141,6 @@ func (m* Module) HandleLoginModule(args[] interface{}) error{
 	if player==nil{
 		return  errors.New("帐号重复登录1");
 	}
-
 	agent.SetChanRPC(m.ChanRPC)
 
 	var data []byte;
@@ -151,66 +149,27 @@ func (m* Module) HandleLoginModule(args[] interface{}) error{
 	},func(){
 		log.Debug("用户读取数据完成")
 		player.InitData(&data);
+		m.AddPlayer(player)
 		//发送登录成功
 		sendmsg:=&proto.S2C_Login{ Tag:errmsg.SYS_SUCCESS}
 		player.SendMsg(sendmsg)
+
 	})
 
 	return  nil
 }
 
-
-
-
-type RoomInfo struct {
-	module *Module
-
-	name          string
-	startNullTime int64
-	userServerMap map[bson.ObjectId]string
-}
-
-func (r *RoomInfo) CheckDestroy(curTime int64) bool {
-	if r.GetUserCount() < 1 {
-		if r.startNullTime > 0 {
-			if curTime-r.startNullTime >= int64(conf.DestroyRoomInterval) {
-				return true
-			}
-		} else {
-			r.startNullTime = time.Now().Unix()
-		}
-	} else {
-		r.startNullTime = 0
+func (m* Module) EnterModuleRoom(args[]interface{})error{
+	roleId:=args[0].(int32)
+	roomId:=args[1].(int32)
+	player:=m.GetPlayer(roleId)
+	if player==nil{
+		return  errors.New("EnterModuleRoom：player为空")
 	}
-	return false
-}
-
-func (r *RoomInfo) GetUserCount() int {
-	return len(r.userServerMap)
-}
-
-func (r *RoomInfo) IsInRoom(userId bson.ObjectId) bool {
-	_, ok := r.userServerMap[userId]
-	return ok
-}
-
-func (r *RoomInfo) EnterRoom(userId bson.ObjectId, serverName string) bool {
-	ok := !r.IsInRoom(userId)
-	if ok {
-		r.userServerMap[userId] = serverName
-		r.module.AddClientCount(1)
-		log.Debug("%v user enter %v room, %v count user in %v", userId, r.name, r.GetUserCount(), r.module.Name)
+	room:=m.GetRoom(roomId)
+	if room ==nil{
+		return  errors.New("EnterModuleRoom：room")
 	}
-	return ok
+	room.AddPlayer(player)
+	return  nil
 }
-
-func (r *RoomInfo) LeaveRoom(userId bson.ObjectId) bool {
-	ok := r.IsInRoom(userId)
-	if ok {
-		delete(r.userServerMap, userId)
-		r.module.AddClientCount(-1)
-		log.Debug("%v user leave %v room, %v count user in %v", userId, r.name, r.GetUserCount(), r.module.Name)
-	}
-	return ok
-}
-

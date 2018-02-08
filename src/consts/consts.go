@@ -19,4 +19,6 @@ const(
 	Center_Rpc_OnPlayerChangeModule="OnPlayerChangeModule" //player module发生变化
 
 	Room_Rpc_LoginModule="LoginModule" //进入module
+	Room_Rpc_EnterModule="EnterModule" //进入module
+	Room_Rpc_EnterModuleRoom="EnterModuleRoom" //进入房间
 )

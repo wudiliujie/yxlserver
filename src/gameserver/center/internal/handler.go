@@ -70,8 +70,8 @@ func handleLogin(args []interface{}){
 		 agent.WriteMsg(sendMsg)
 		 return
 	 }
-	skeleton.AsynCall(roomModule.GetChanRPC(),consts.Room_Rpc_LoginModule,accountid,agent, func(error) {
-	 	log.Debug("登录成功")
+	skeleton.AsynCall(roomModule.GetChanRPC(),consts.Room_Rpc_LoginModule,accountid,agent, func(e error) {
+	 	log.Debug("登录结果:%v",e)
 		//通知主线程登录成功
 		OnPlayerLoginSuccess(accountid,roomModule)
 	 })
