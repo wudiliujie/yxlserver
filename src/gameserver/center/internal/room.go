@@ -29,7 +29,9 @@ func getBestRoomId(args []interface{}) (interface{},error){
 	for _,v :=range roomMap{
 		if v.RoomType== t{
 			if v.Num<consts.ROOM_MAX_NUM{
+				v.Num++
 				id=v.Id
+				break
 			}
 		}
 	}
@@ -62,6 +64,7 @@ func onCreateRoom(args[] interface{})error{
 		room =&RoomData{Id:roomId,Module:m,RoomType:roomType}
 		roomMap[roomId]= room
 	}
+	room.Num=1;//创建房间人数为1
 	return  nil;
 }
 //人数发生变化
@@ -70,7 +73,7 @@ func onRoomNumChange(args[]interface{}) error{
 	num:=args[1].(int32)
 	room:=GetRoom(roomId)
 	if room!=nil{
-		room.Num=num
+		room.Num+=num
 	}
 	return  nil
 }

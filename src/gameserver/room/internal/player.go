@@ -18,6 +18,7 @@ type Player struct {
 	strAttr  map[int32]string
 	Agent gate.Agent
 	Module  common.RoomModule
+	RoomId int32
 }
 func (m *Module)GetPlayer(roleId int32)(*Player){
 	player, ok := m.playerMap[roleId]
@@ -49,10 +50,12 @@ func (m* Module)AddPlayer(player *Player){
 func (m* Module)RemovePlayer(roleId int32){
 	delete(m.playerMap, roleId)
 	m.AddClientCount(-1)
+
 }
 //进入模块
 func (m* Module)HandleEnterModule(args[] interface{})error{
 	player:= args[0].(*Player)
+	player.Agent.SetChanRPC(m.ChanRPC)
 	m.AddPlayer(player)
 	return  nil
 }
@@ -66,7 +69,8 @@ func (player* Player)ReplaceAgent(agent gate.Agent){
 	}
 	player.Agent= agent
 }
-func(player* Player) InitData(dbinfo *[]byte){
+func(player* Player) InitData(dbinfo *[]byte)(isNew bool){
+	isNew=false
 	info :=&proto.RoleDbInfo{}
 	proto1.UnmarshalMerge(*dbinfo,info);
 	for _,v :=range  info.IntAttr{
@@ -77,8 +81,10 @@ func(player* Player) InitData(dbinfo *[]byte){
 	}
 	if len(player.intAttr)==0{
 		player.onRoleCreate();
+		isNew=true
 	}
-	player.intAttr[1]=100;
+	//player.intAttr[1]=100;
+	return
 	//player.status=1
 }
 func (player* Player) GetSaveData()*[]byte{
@@ -97,7 +103,7 @@ func (player* Player) GetSaveData()*[]byte{
 	 return  &data;
 }
 func (player* Player) onRoleCreate(){
-	player.intAttr[1]=100;
+	player.intAttr[1]=int64(player.RoleId)
 }
 func (player* Player)SendRoleInfo(){
 	send:= &proto.S2C_GetInfo{ }
@@ -133,7 +139,7 @@ func (m *Module) EnterRoom(player *Player, roomType consts.ROOM_TYPE) (int32,int
 				log.Error("本模块房间不存在")
 				return errmsg.SYS_ROOM_SYSTEM_ERROR,0
 			}
-			return room.AddPlayer(player),0
+			return room.AddPlayer(player),roomId
 		}else{ //切换模块
 			ret:=player.ChangeModule(m,module)
 			if ret==errmsg.SYS_SUCCESS{
@@ -146,7 +152,7 @@ func (m *Module) EnterRoom(player *Player, roomType consts.ROOM_TYPE) (int32,int
 		}
 	}else {
 		//创建新的房间
-		log.Debug("创建新房间");
+		//log.Debug("创建新房间");
 		//获取新房间编号
 		args,err:=center.ChanRPC.Call1(consts.Center_Rpc_GetNewRoomId)
 		if err!=nil {

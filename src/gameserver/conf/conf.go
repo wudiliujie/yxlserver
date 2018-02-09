@@ -22,14 +22,14 @@ var (
 	MaxRoomMsgLen       = 50
 	DestroyRoomInterval = 3600
 
-	PendingWriteNum        = 2000
+	PendingWriteNum        = 3000
 	MaxMsgLen       uint32 = 4096
 	HTTPTimeout            = 10 * time.Second
 	LenMsgLen              = 2
 	LittleEndian           = false
 
 	// agent conf
-	AgentGoLen              = 50
+	AgentGoLen              = 500
 	AgentTimerDispatcherLen = 50
 	AgentAsynCallLen        = 50
 	AgentChanRPCLen         = 50

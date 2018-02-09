@@ -1,10 +1,7 @@
 package internal
 
 import (
-	"common/proto"
 	"leaf/gate"
-
-	"gopkg.in/mgo.v2/bson"
 	"fmt"
 	"leaf/log"
 )
@@ -27,14 +24,6 @@ func onAgentDestroy(agent gate.Agent)() {
 /*	if accountId.Valid() {
 		center.ChanRPC.Go("AccountOffline", accountId, agent)
 	}*/
-}
-func handleLogin(args []interface{}){
-	recvMsg := args[0].(*proto.C2S_Login)
-	log.Debug("loing:%s>>>>%s",recvMsg.Name,recvMsg.Password)
-	agent := args[1].(gate.Agent)
-	accountid := bson.NewObjectId();
-	agent.SetUserData(accountid)
-	//center.ChanRPC.Go("CreatePlayer", accountid, agent)
 }
 func  handleGetInfo(args []interface{})  {
 	log.Debug("获取信息");

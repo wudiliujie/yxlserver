@@ -1,9 +1,7 @@
 package client
 
 import (
-	"crypto/md5"
-	"fmt"
-	"common/proto"
+
 	"gameclient/conf"
 	"errors"
 	"gopkg.in/mgo.v2/bson"
@@ -33,17 +31,7 @@ func login(args []interface{}) (ret interface{}, err error) {
 		err = errors.New("args len is less than 2")
 		return
 	}
-
-	name := args[0].(string)
-	password := args[1].(string)
-	userData.AccountName = name
-
-	Start(conf.Client.LoginAddr)
-
-	hash := md5.Sum([]byte(password))
-	strMd5 := fmt.Sprintf("%x", hash)
-	msg := &proto.C2S_Login{Name: name, Password: strMd5}
-	Client.WriteMsg(msg)
+	 Start(conf.Client.LoginAddr)
 	return
 }
 

@@ -17,8 +17,13 @@ import (
 	"common/errmsg"
 	"leaf/network"
 	"common/msg"
+	"gameserver/center"
+	"consts"
 )
 
+var(
+	RoomTestCount=int32(0)
+)
 func NewModule(id int) *Module {
 	skeleton := base.NewSkeleton()
 	module := &Module{Skeleton: skeleton, ChanRPC: skeleton.ChanRPCServer}
@@ -50,12 +55,16 @@ func (m* Module) GetId() int{
 }
 func (m *Module) OnInit() {
 	m.Skeleton.AfterFunc(time.Duration(conf.DestroyRoomInterval/10), m.checkDestroyRoom)
+	m.Skeleton.AfterFunc(time.Second*30, m.showInfo)
 }
 
 func (m *Module) OnDestroy() {
 
 }
-
+func (m* Module) showInfo(){
+	log.Debug("%v:当前人数：%v, room：%v",m.Name,len(m.playerMap),len(m.roomMap))
+	m.Skeleton.AfterFunc(time.Second*30, m.showInfo)
+}
 func (m *Module) checkDestroyRoom() {
 	/*destroyRooms := []string{}
 	nowTime := time.Now().Unix()
@@ -89,7 +98,7 @@ func (m *Module) AddClientCount(delta int32) {
 }
 
 func (m *Module)HandleMsgData(args []interface{})error {
-	log.Debug("%v处理消息",m.Name)
+	//log.Debug("%v处理消息",m.Name)
 	a:= args[0].(gate.Agent)
 	if a.Gate().Processor != nil {
 		data := args[1].([]byte)
@@ -98,7 +107,7 @@ func (m *Module)HandleMsgData(args []interface{})error {
 			log.Error("解析包错误:%v",err)
 		}
 		roleid:= a.UserData().(int32)
-		log.Error("包:%v",msg)
+		//log.Debug("包:%v",msg)
 		player:= m.GetPlayer(roleid)
 		args:=&HandleArgs{M:m,P:player}
 		if(player!=nil){
@@ -119,13 +128,22 @@ func (m *Module) CloseAgent(args []interface{})error{
 	player:=m.GetPlayer(roleId);
 	if player!=nil{
 		data:= player.GetSaveData()
+		if player.RoomId!=0{
+			room:=m.GetRoom(player.RoleId)
+			if room!=nil{
+				room.RemovePlayer(player.RoleId)
+			}
+		}
+
 		m.Skeleton.Go(func(){
 			db.SaveRoleInfo(roleId,data)
 		}, func() {
-			log.Debug("保存成功");
+			//log.Debug("保存成功");
 		});
+		player.Agent=nil
 		m.RemovePlayer(player.RoleId)
 	}
+	center.ChanRPC.Call0(consts.Center_Rpc_OnPlayerLogout,roleId)
 	return  nil;
 }
 //登录模块
@@ -147,12 +165,20 @@ func (m* Module) HandleLoginModule(args[] interface{}) error{
 	m.Skeleton.Go(func() {
 		  db.ReadRoleInfo(roleid,&data)
 	},func(){
-		log.Debug("用户读取数据完成")
-		player.InitData(&data);
+		isnew:= player.InitData(&data);
 		m.AddPlayer(player)
 		//发送登录成功
 		sendmsg:=&proto.S2C_Login{ Tag:errmsg.SYS_SUCCESS}
 		player.SendMsg(sendmsg)
+
+		if isnew{
+			createdata:= player.GetSaveData()
+			m.Skeleton.Go(func(){
+				db.CreateRoleInfo(roleid,createdata)
+			},func(){
+				//log.Debug("创建角色保存完成")
+			})
+		}
 
 	})
 
@@ -170,6 +196,7 @@ func (m* Module) EnterModuleRoom(args[]interface{})error{
 	if room ==nil{
 		return  errors.New("EnterModuleRoom：room")
 	}
+
 	room.AddPlayer(player)
 	return  nil
 }

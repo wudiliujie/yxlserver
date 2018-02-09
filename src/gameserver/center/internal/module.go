@@ -6,12 +6,15 @@ import (
 	"gameserver/gate"
 	"gameserver/common"
 	"math"
+	"time"
+	"leaf/log"
 )
 
 var (
 	skeleton = base.NewSkeleton()
 	ChanRPC  = skeleton.ChanRPCServer
 	roomModule = make(map[int]common.RoomModule)
+	TestCount=int32(0)
 )
 
 type Module struct {
@@ -21,10 +24,15 @@ type Module struct {
 func (m *Module) OnInit() {
 	m.Skeleton = skeleton
 	gate.Module.Gate.AgentChanRPC=ChanRPC
+	m.Skeleton.AfterFunc(time.Second*30, m.showInfo)
 }
 
 func (m *Module) OnDestroy() {
 
+}
+func (m* Module) showInfo(){
+	log.Debug("%v:当前人数：%v, room：%v","center",len(playerMap),len(roomMap))
+	m.Skeleton.AfterFunc(time.Second*30, m.showInfo)
 }
 func RegisterRoomModule( module common.RoomModule){
 	roomModule[module.GetId()] = module

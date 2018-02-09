@@ -5,18 +5,31 @@ import (
 	"leaf/log"
 	"reflect"
 	"net"
-	"time"
+	"sync/atomic"
+
 )
 
 var (
 	Client		*Agent
 	processor 	network.Processor
+	ClientSN int32
 )
-
+func GetClientSNNew()int32{
+	return atomic.AddInt32(&ClientSN,1);
+}
 func newAgent(conn *network.TCPConn) network.Agent {
-	Client = new(Agent)
-	Client.conn = conn
-	return Client
+	c := new(Agent)
+	c.conn = conn
+	//连接成功
+	//发送登录
+/*	name :=strconv.Itoa(int( GetClientSNNew()))
+	password := "111111"
+	userData.AccountName = name
+	hash := md5.Sum([]byte(password))
+	strMd5 := fmt.Sprintf("%x", hash)
+	msg := &proto.C2S_Login{Name: name, Password: strMd5}
+	c.WriteMsg(msg)*/
+	return c
 }
 
 type Agent struct {
@@ -97,20 +110,24 @@ func Close() {
 	}
 }
 
-func Start(addr string)  {
+func Start(addr string)  *network.TCPClient{
 	//Close()
 
 	client := new(network.TCPClient)
 	client.Addr = addr
 	client.NewAgent = newAgent
+	client.ConnNum=1
+	client.ConnectInterval=3
+	client.PendingWriteNum=100
 	client.Start()
 
-	log.Release("start connect to %v", addr)
-	for {
+	//log.Release("start connect to %v", addr)
+	/*for {
 		time.Sleep(time.Second)
 		if Client != nil {
 			break
 		}
 	}
-	log.Release("connect %v success", addr)
+	log.Release("connect %v success", addr)*/
+	return  client
 }

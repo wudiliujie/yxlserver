@@ -13,6 +13,9 @@ import (
 	"gameserver/gate"
 	"math/rand"
 	"time"
+	"gameserver/db"
+	 _ "net/http/pprof"
+	"net/http"
 )
 
 func main() {
@@ -21,7 +24,7 @@ func main() {
 	if argsLen < 2 {
 		log.Fatal("os args of len(%v) less than 2", argsLen)
 	}
-
+	db.Init()
 	confFileName := os.Args[1]
 	conf.Init(confFileName)
 
@@ -40,5 +43,8 @@ func main() {
 
 	modules := []module.Module{gate.Module,center.Module}
 	modules = append(modules, room.CreateModules()...)
+	go func() {
+		http.ListenAndServe("localhost:6060", nil)
+	}()
 	leaf.Run(modules...)
 }
