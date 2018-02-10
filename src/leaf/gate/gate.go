@@ -185,6 +185,7 @@ func (a *agent) Run() {
 
 func (a *agent) OnClose() {
 	if a.chanRPC != nil {
+		log.Debug("close agent")
 		err := a.chanRPC.Call0("CloseAgent", a)
 		if err != nil {
 			log.Error("chanrpc error: %v", err)

@@ -7,12 +7,19 @@ import (
 	"net"
 	"sync/atomic"
 
+	"strconv"
+	"crypto/md5"
+	"common/proto"
+	"fmt"
+	sync "sync"
 )
 
 var (
 	Client		*Agent
 	processor 	network.Processor
 	ClientSN int32
+	clientslock = sync.Mutex{}
+	clients = map[int32]*Agent{}
 )
 func GetClientSNNew()int32{
 	return atomic.AddInt32(&ClientSN,1);
@@ -20,19 +27,25 @@ func GetClientSNNew()int32{
 func newAgent(conn *network.TCPConn) network.Agent {
 	c := new(Agent)
 	c.conn = conn
+	c.id = GetClientSNNew()
 	//连接成功
 	//发送登录
-/*	name :=strconv.Itoa(int( GetClientSNNew()))
+	name :=strconv.Itoa(int(c.id))
 	password := "111111"
 	userData.AccountName = name
 	hash := md5.Sum([]byte(password))
 	strMd5 := fmt.Sprintf("%x", hash)
 	msg := &proto.C2S_Login{Name: name, Password: strMd5}
-	c.WriteMsg(msg)*/
+	c.WriteMsg(msg)
+	clientslock.Lock()
+	defer clientslock.Unlock()
+	clients[c.id]=c
+
 	return c
 }
 
 type Agent struct {
+	id int32
 	conn       	*network.TCPConn
 	userData   	interface{}
 }

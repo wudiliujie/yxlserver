@@ -44,6 +44,7 @@ func (m *Module)CreatePlayer(roleId int32,agent gate.Agent)(*Player){
 //进入模块
 func (m* Module)AddPlayer(player *Player){
 	m.playerMap[player.RoleId]=player
+	player.Agent.SetChanRPC(m.ChanRPC)
 	m.AddClientCount(1)
 }
 
@@ -55,8 +56,18 @@ func (m* Module)RemovePlayer(roleId int32){
 //进入模块
 func (m* Module)HandleEnterModule(args[] interface{})error{
 	player:= args[0].(*Player)
-	player.Agent.SetChanRPC(m.ChanRPC)
+	roomId:=args[1].(int32)
+
 	m.AddPlayer(player)
+	if roomId!=0{
+		room:= m.GetRoom(roomId)
+		if room!=nil{
+			room.AddPlayer(player)
+		}
+		//通知玩家进入房间成功
+		sendmsg:=&proto.S2C_EnterRoom{Tag:errmsg.SYS_SUCCESS,RoomId:roomId}
+		player.SendMsg(sendmsg)
+	}
 	return  nil
 }
 
@@ -141,14 +152,13 @@ func (m *Module) EnterRoom(player *Player, roomType consts.ROOM_TYPE) (int32,int
 			}
 			return room.AddPlayer(player),roomId
 		}else{ //切换模块
-			ret:=player.ChangeModule(m,module)
-			if ret==errmsg.SYS_SUCCESS{
-				err = module.GetChanRPC().Call0(consts.Room_Rpc_EnterModuleRoom,player.RoleId,roomId)
-				if(err!=nil){
-					log.Error("进入模块房间失败:"+err.Error())
-					return  errmsg.SYS_ROOM_SYSTEM_ERROR,0
+			ret:=player.ChangeModule(m,module,roomId, func(e error){
+				if e!=nil{
+					log.Error("切换房间进入模块失败:%v",e)
 				}
-			}
+			})
+			return  ret,0
+
 		}
 	}else {
 		//创建新的房间
@@ -169,12 +179,8 @@ func (m *Module) EnterRoom(player *Player, roomType consts.ROOM_TYPE) (int32,int
 	}
 	return  errmsg.SYS_SUCCESS,roomId
 }
-func (player* Player) ChangeModule(old *Module,new common.RoomModule)int32{
-	err:= new.GetChanRPC().Call0(consts.Room_Rpc_EnterModule,player)
-	if(err!=nil){
-		log.Error("切换模块错误")
-		return  errmsg.SYS_ROOM_SYSTEM_ERROR;
-	}
+func (player* Player) ChangeModule(old *Module,new common.RoomModule,roomId int32, cb func(e error))int32{
+	old.AsynCall(new.GetChanRPC(), consts.Room_Rpc_EnterModule, player,roomId, cb)
 	old.RemovePlayer(player.RoleId)
-	return  errmsg.SYS_SUCCESS
+	return  errmsg.SYS_ASYNC_WAIT
 }

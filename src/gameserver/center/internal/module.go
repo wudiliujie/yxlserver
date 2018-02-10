@@ -3,7 +3,6 @@ package internal
 import (
 	"leaf/module"
 	"gameserver/base"
-	"gameserver/gate"
 	"gameserver/common"
 	"math"
 	"time"
@@ -23,16 +22,30 @@ type Module struct {
 
 func (m *Module) OnInit() {
 	m.Skeleton = skeleton
-	gate.Module.Gate.AgentChanRPC=ChanRPC
+
 	m.Skeleton.AfterFunc(time.Second*30, m.showInfo)
 }
 
 func (m *Module) OnDestroy() {
-
+ log.Debug("销毁centerModule")
 }
 func (m* Module) showInfo(){
 	log.Debug("%v:当前人数：%v, room：%v","center",len(playerMap),len(roomMap))
 	m.Skeleton.AfterFunc(time.Second*30, m.showInfo)
+
+	destroyRooms := []int32{}
+	for i,v:=range  roomMap{
+		if v.Num<=0{
+			destroyRooms=append(destroyRooms,i)
+		}
+	}
+	if len(destroyRooms) > 0 {
+		for _, idx := range destroyRooms {
+			delete(roomMap, idx)
+		}
+		//cluster.Go("world", "DestroyRoom", destroyRooms)
+		log.Debug("%v rooms is destroy in %v", destroyRooms, "center")
+	}
 }
 func RegisterRoomModule( module common.RoomModule){
 	roomModule[module.GetId()] = module

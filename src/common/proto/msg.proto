@@ -9,6 +9,8 @@ enum PCK{
     S2C_GetInfo_ID=4;
     C2S_EnterRoom_ID=5;
     S2C_EnterRoom_ID=6;
+    C2S_Fire_ID=7;
+    S2C_Fire_ID=8;
     MAX_ID=100;
 }
 message C2S_Login  {
@@ -32,6 +34,14 @@ message C2S_EnterRoom  {
 message S2C_EnterRoom {
     int32 tag=1;
     int32 roomId=2;
+}
+
+//进入方将
+message C2S_Fire  {
+    int32 angle=1;
+}
+message S2C_Fire {
+   int32 tag=1;
 }
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

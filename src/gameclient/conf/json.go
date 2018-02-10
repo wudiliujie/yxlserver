@@ -8,6 +8,7 @@ import (
 
 var Client struct {
 	LoginAddr string
+	ClientNum int
 }
 
 func init() {

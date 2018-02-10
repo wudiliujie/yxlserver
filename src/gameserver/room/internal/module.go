@@ -59,11 +59,26 @@ func (m *Module) OnInit() {
 }
 
 func (m *Module) OnDestroy() {
-
+	log.Debug("销毁room%v",m.Name)
 }
 func (m* Module) showInfo(){
 	log.Debug("%v:当前人数：%v, room：%v",m.Name,len(m.playerMap),len(m.roomMap))
 	m.Skeleton.AfterFunc(time.Second*30, m.showInfo)
+	//检测是否房间是否需要销毁
+	destroyRooms := []int32{}
+	for i,v:=range m.roomMap{
+		if len(v.Players)<=0{
+			destroyRooms=append(destroyRooms,i)
+		}
+	}
+	if len(destroyRooms) > 0 {
+		for _, idx := range destroyRooms {
+			delete(m.roomMap, idx)
+		}
+		//cluster.Go("world", "DestroyRoom", destroyRooms)
+		log.Debug("%v rooms is destroy in %v", destroyRooms, m.Name)
+	}
+
 }
 func (m *Module) checkDestroyRoom() {
 	/*destroyRooms := []string{}
@@ -129,8 +144,9 @@ func (m *Module) CloseAgent(args []interface{})error{
 	if player!=nil{
 		data:= player.GetSaveData()
 		if player.RoomId!=0{
-			room:=m.GetRoom(player.RoleId)
+			room:=m.GetRoom(player.RoomId)
 			if room!=nil{
+				log.Debug("删除玩家 room:%v-->player:%v",room.Id,player.RoleId)
 				room.RemovePlayer(player.RoleId)
 			}
 		}
@@ -140,7 +156,7 @@ func (m *Module) CloseAgent(args []interface{})error{
 		}, func() {
 			//log.Debug("保存成功");
 		});
-		player.Agent=nil
+		//player.Agent=nil
 		m.RemovePlayer(player.RoleId)
 	}
 	center.ChanRPC.Call0(consts.Center_Rpc_OnPlayerLogout,roleId)

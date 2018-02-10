@@ -41,8 +41,9 @@ func main() {
 
 	common.Init()
 
-	modules := []module.Module{gate.Module,center.Module}
+	modules := []module.Module{center.Module}
 	modules = append(modules, room.CreateModules()...)
+	modules =append(modules,gate.Module)
 	go func() {
 		http.ListenAndServe("localhost:6060", nil)
 	}()

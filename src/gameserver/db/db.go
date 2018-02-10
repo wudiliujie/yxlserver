@@ -35,6 +35,7 @@ func SaveRoleInfo(roleId int32, data *[]byte) {
 		atomic.AddInt32(&DBTestCount,1)
 		log.Debug("saveerr:%v>>>%v",atomic.LoadInt32(&DBTestCount))
 	}
+	//log.Debug("保存成功%v",roleId)
 }
 func CreateRoleInfo(roleId int32, data *[]byte) {
 	_, err := db.Exec("insert into user_account (roleid,role_data)values(?,?)", roleId, data)

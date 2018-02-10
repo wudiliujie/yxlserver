@@ -7,6 +7,7 @@ import (
 	"consts"
 	"sync/atomic"
 	"leaf/log"
+	"common/errmsg"
 )
 
 func RegisterHandler(chanRPC *chanrpc.Server,module *Module) {
@@ -19,6 +20,7 @@ func RegisterHandler(chanRPC *chanrpc.Server,module *Module) {
 
 	msg.Processor.SetHandler(&proto.C2S_GetInfo{}, handleGetInfo)
 	msg.Processor.SetHandler(&proto.C2S_EnterRoom{}, handleEnterRoom)
+	msg.Processor.SetHandler(&proto.C2S_Fire{},handleEnterFire)
 
 
 }
@@ -39,6 +41,25 @@ func handleEnterRoom(args[] interface{}){
 	hArgs:=args[1].(*HandleArgs)
 	sendMsg:=&proto.S2C_EnterRoom{}
 	sendMsg.Tag,sendMsg.RoomId= hArgs.M.EnterRoom(hArgs.P, consts.ROOM_TYPE(recvMsg.RoomType))
-
-	hArgs.P.SendMsg(sendMsg)
+	if(sendMsg.Tag!= errmsg.SYS_ASYNC_WAIT){
+		hArgs.P.SendMsg(sendMsg)
+	}
+}
+func handleEnterFire(args[] interface{}){
+	//recvMsg:= args[0].(*proto.C2S_EnterRoom)
+	hArgs:=args[1].(*HandleArgs)
+	if hArgs.P ==nil {
+		return
+	}
+	if hArgs.P.RoomId==0{
+		return
+	}
+	room:=hArgs.M.GetRoom(hArgs.P.RoomId)
+	if room ==nil{
+		return
+	}
+	sendmsg:=&proto.S2C_Fire{Tag:0}
+	for _,v := range room.Players{
+		v.SendMsg(sendmsg)
+	}
 }

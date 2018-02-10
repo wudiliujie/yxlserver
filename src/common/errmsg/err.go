@@ -1,5 +1,6 @@
 package errmsg
 const (
+	SYS_ASYNC_WAIT=-1	//异步等待
 	SYS_SUCCESS=0	//成功
 	SYS_LOGIN_NOACCOUNT=1	//帐号错误
 	SYS_LOGIN_PASSWORD=2	//密码错误

@@ -4,6 +4,9 @@ import (
 	"leaf/module"
 	"gameclient/base"
 	"time"
+	"common/proto"
+	"leaf/log"
+	"gameclient/conf"
 )
 
 var (
@@ -17,6 +20,7 @@ var (
 	GetInfoCount_Fail=int32(0)
 	EnterRoomCount=int32(0)
 	EnterRoomCount_Fail=int32(0)
+	NUM=10000
 )
 
 type ClientModule struct {
@@ -26,10 +30,24 @@ type ClientModule struct {
 func (m *ClientModule) OnInit() {
 	m.Skeleton = skeleton
 	args:=[]interface{}{"a","b"}
-	for i:=0;i<10000;i++{
+	for i:=0;i<conf.Client.ClientNum;i++{
 		 go login(args)
 		 time.Sleep(time.Microsecond*10)
 	}
+	skeleton.AfterFunc(time.Second,SendInfo)
+}
+func SendInfo(){
+	clientslock.Lock()
+	defer clientslock.Unlock()
+	if len(clients)>=conf.Client.ClientNum{
+		log.Debug("发送信息")
+		for _,v:=range clients{
+			sendmsg:=&proto.C2S_Fire{Angle:100}
+			v.WriteMsg(sendmsg)
+		}
+	}
+
+	skeleton.AfterFunc(time.Second,SendInfo)
 }
 
 func (m *ClientModule) OnDestroy() {

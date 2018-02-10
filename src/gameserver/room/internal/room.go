@@ -34,6 +34,7 @@ func (m *Module) GetRoom(roomId int32) *RoomData {
 
 func (room *RoomData) AddPlayer(player *Player) int32 {
 	room.Players[player.RoleId] = player
+	player.RoomId= room.Id
 	//room.OnRoomNumChange() //添加的时候，直接在主线程加1了
 	if len(room.Players) >= 5 {
 	}

@@ -36,7 +36,7 @@ func OnPlayerLogout(args[] interface{})error{
 	roleId:=args[0].(int32)
 	player:=GetPlayer(roleId)
 	if player !=nil{
-		player.Agent=nil
+		//player.Agent=nil
 	}
 	delete(playerMap,roleId)
 	return  nil
