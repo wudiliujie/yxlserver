@@ -15,8 +15,6 @@ import (
 	"github.com/kataras/iris/core/errors"
 	"leaf/network"
 	"common/msg"
-	"gameserver/center"
-	"consts"
 	"gameserver/players"
 )
 
@@ -146,7 +144,7 @@ func (m *Module) CloseAgent(args []interface{})error{
 		if player.RoomId!=0{
 			room:=m.GetRoom(player.RoomId)
 			if room!=nil{
-				log.Debug("删除玩家 room:%v-->player:%v",room.Id,player.RoleId)
+				//log.Debug("删除玩家 room:%v-->player:%v",room.Id,player.RoleId)
 				room.RemovePlayer(player.RoleId)
 			}
 		}
@@ -154,8 +152,8 @@ func (m *Module) CloseAgent(args []interface{})error{
 		db.SaveRoleInfo(roleId,data)
 		//player.Agent=nil
 		m.RemovePlayer(player.RoleId)
+		players.RemovePlayer(player.RoleId)
 	}
-	center.ChanRPC.Call0(consts.Center_Rpc_OnPlayerLogout,roleId)
 	return  nil;
 }
 //登录模块

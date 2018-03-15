@@ -34,6 +34,7 @@ func GetPlayer(roleId int32)(*Player){
 func CreatePlayer(roleId int32,agent gate.Agent,m common.RoomModule)(*Player){
 
 	if playerMap.Get(roleId)!= nil  {
+		log.Debug("创建角色的时候，用户已经存在%v",roleId)
 		return  nil;
 	}
 	player :=&Player{}
@@ -44,6 +45,9 @@ func CreatePlayer(roleId int32,agent gate.Agent,m common.RoomModule)(*Player){
 	player.Module=m
 	playerMap.Set(roleId,player)
 	return  player;
+}
+func RemovePlayer(roleId int32){
+	playerMap.Del(roleId)
 }
 func GetPlayerNum()int32{
 	return  int32(playerMap.Len())
@@ -69,7 +73,7 @@ func(player* Player) InitData(dbinfo *[]byte)(isNew bool){
 func (player* Player) onRoleCreate(){
 	player.intAttr[1]=int64(player.RoleId)
 }
-func (player* Player) GetSaveData()*[]byte{
+func (player* Player) GetSaveData()[]byte{
 	info :=&proto.RoleDbInfo{}
 	info.Roleid= 0;
 	for k,v:=range player.intAttr{
@@ -82,7 +86,7 @@ func (player* Player) GetSaveData()*[]byte{
 	if(err!= nil){
 		log.Error("序列化错误%v",err.Error())
 	}
-	return  &data;
+	return  data;
 }
 func (player* Player) SendMsg(msg interface{} ){
 	player.Agent.WriteMsg(msg)

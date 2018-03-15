@@ -12,7 +12,8 @@ var (
 )
 func Init()  {
 	var err error
-	db, err = sql.Open("mysql", "root:root@tcp(192.168.44.165:3306)/yxl_game?charset=utf8&parseTime=true")
+	//db, err = sql.Open("mysql", "root:root@tcp(192.168.44.165:3306)/yxl_game?charset=utf8&parseTime=true")
+	db, err = sql.Open("mysql", "root:111111@tcp(127.0.0.1:3306)/yxl_game?charset=utf8&parseTime=true")
 	if err != nil {
 		log.Error("数据库错误%v", err)
 	}
@@ -20,14 +21,16 @@ func Init()  {
 	db.SetMaxIdleConns(500)
 	db.Ping()
 }
-func ReadRoleInfo(roleId int32, data *[]byte) error {
+func ReadRoleInfo(roleId int32, data []byte) error {
 	row := db.QueryRow("select role_data from user_account where roleid=?", roleId)
 	if row != nil {
 		row.Scan(data)
+	}else{
+		createRoleInfo(roleId,data)
 	}
 	return nil
 }
-func SaveRoleInfo(roleId int32, data *[]byte) {
+func SaveRoleInfo(roleId int32, data []byte) {
 
 	_, err := db.Exec("update user_account set role_data=? where roleid=?", data, roleId)
 	if err != nil {
@@ -37,7 +40,7 @@ func SaveRoleInfo(roleId int32, data *[]byte) {
 	}
 	//log.Debug("保存成功%v",roleId)
 }
-func CreateRoleInfo(roleId int32, data *[]byte) {
+func createRoleInfo(roleId int32, data []byte) {
 	_, err := db.Exec("insert into user_account (roleid,role_data)values(?,?)", roleId, data)
 	if err != nil {
 		log.Error("创建玩家错误%v", err)

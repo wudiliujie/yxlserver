@@ -5,8 +5,6 @@ import (
 	"common/msg"
 	"common/proto"
 	"consts"
-	"sync/atomic"
-	"leaf/log"
 	"common/errmsg"
 )
 
@@ -25,7 +23,7 @@ func RegisterHandler(chanRPC *chanrpc.Server,module *Module) {
 
 }
 func handleGetInfo(args[] interface{}){
-	log.Debug("获取用户信息")
+	//log.Debug("获取用户信息")
 	//recvMsg:= args[0].(*proto.C2S_GetInfo)
 	hArgs:=args[1].(*HandleArgs)
 	hArgs.P.SendRoleInfo()
@@ -35,7 +33,7 @@ func handleGetInfo(args[] interface{}){
 func handleEnterRoom(args[] interface{}){
 	//log.Debug("登录消息")
 
-	log.Debug("登录房间%v",	atomic.AddInt32(&RoomTestCount,1))
+	//log.Debug("登录房间%v",	atomic.AddInt32(&RoomTestCount,1))
 	//log.Debug("收到进入房间请求")
 	recvMsg:= args[0].(*proto.C2S_EnterRoom)
 	hArgs:=args[1].(*HandleArgs)

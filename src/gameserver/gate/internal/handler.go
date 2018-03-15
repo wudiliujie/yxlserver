@@ -61,7 +61,7 @@ func handleLogin(args []interface{}) {
 		}*/
 
 	var data []byte
-	db.ReadRoleInfo(accountid, &data)
+	db.ReadRoleInfo(accountid, data)
 
 	_roomModule, err := center.ChanRPC.Call1(consts.Center_Rpc_GetBestModule)
 	if err != nil {
@@ -72,11 +72,8 @@ func handleLogin(args []interface{}) {
 
 	roomModule := _roomModule.(common.RoomModule)
 	player := players.CreatePlayer(accountid,agent,roomModule)
-	isnew := player.InitData(&data)
-	if isnew {
-		createdata := player.GetSaveData()
-		db.CreateRoleInfo(accountid, createdata)
-	}
+	player.InitData(&data)
+
 	err = roomModule.GetChanRPC().Call0(consts.Room_Rpc_LoginModule, accountid, agent)
 	if err != nil {
 		sendMsg.Tag = errmsg.SYS_LOGIN_NO_MODULE
@@ -88,5 +85,5 @@ func handleLogin(args []interface{}) {
 	agent.SetUserData(accountid)
 	sendmsg := &proto.S2C_Login{Tag: errmsg.SYS_SUCCESS}
 	agent.WriteMsg(sendmsg)
-	log.Debug("登录成功")
+	//log.Debug("登录成功")
 }
