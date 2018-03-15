@@ -13,12 +13,11 @@ import (
 	"leaf/gate"
 	"gameserver/db"
 	"github.com/kataras/iris/core/errors"
-	"common/proto"
-	"common/errmsg"
 	"leaf/network"
 	"common/msg"
 	"gameserver/center"
 	"consts"
+	"gameserver/players"
 )
 
 var(
@@ -29,7 +28,7 @@ func NewModule(id int) *Module {
 	module := &Module{Skeleton: skeleton, ChanRPC: skeleton.ChanRPCServer}
 	module.Name = fmt.Sprintf("module%v", id)
 	module.roomMap = map[int32]*RoomData{}
-	module.playerMap =map[int32]*Player{}
+	module.playerMap =map[int32]*players.Player{}
 	module.Id=id;
 	module.Processor=msg.Processor
 	RegisterHandler(module.ChanRPC,module)
@@ -38,7 +37,7 @@ func NewModule(id int) *Module {
 
 type HandleArgs struct{
 	M *Module
-	P * Player
+	P * players.Player
 }
 type Module struct {
 	*module.Skeleton
@@ -47,7 +46,7 @@ type Module struct {
 	Name          string
 	clientCount   int32
 	roomMap map[int32]* RoomData
-	playerMap  map[int32]*Player
+	playerMap  map[int32]*players.Player
 	Processor  network.Processor
 }
 func (m* Module) GetId() int{
@@ -117,6 +116,7 @@ func (m *Module)HandleMsgData(args []interface{})error {
 	a:= args[0].(gate.Agent)
 	if a.Gate().Processor != nil {
 		data := args[1].([]byte)
+
 		msg, err := a.Gate().Processor.Unmarshal(data)
 		if err != nil {
 			log.Error("解析包错误:%v",err)
@@ -151,11 +151,7 @@ func (m *Module) CloseAgent(args []interface{})error{
 			}
 		}
 
-		m.Skeleton.Go(func(){
-			db.SaveRoleInfo(roleId,data)
-		}, func() {
-			//log.Debug("保存成功");
-		});
+		db.SaveRoleInfo(roleId,data)
 		//player.Agent=nil
 		m.RemovePlayer(player.RoleId)
 	}
@@ -171,32 +167,12 @@ func (m* Module) HandleLoginModule(args[] interface{}) error{
 	if player!=nil {
 		return  errors.New("帐号重复登录");
 	}
-	player = m.CreatePlayer(roleid,agent);
+	player =players.GetPlayer(roleid)
 	if player==nil{
-		return  errors.New("帐号重复登录1");
+		return  errors.New("帐号没有登录");
 	}
+	m.AddPlayer(player)
 	agent.SetChanRPC(m.ChanRPC)
-
-	var data []byte;
-	m.Skeleton.Go(func() {
-		  db.ReadRoleInfo(roleid,&data)
-	},func(){
-		isnew:= player.InitData(&data);
-		m.AddPlayer(player)
-		//发送登录成功
-		sendmsg:=&proto.S2C_Login{ Tag:errmsg.SYS_SUCCESS}
-		player.SendMsg(sendmsg)
-
-		if isnew{
-			createdata:= player.GetSaveData()
-			m.Skeleton.Go(func(){
-				db.CreateRoleInfo(roleid,createdata)
-			},func(){
-				//log.Debug("创建角色保存完成")
-			})
-		}
-
-	})
 
 	return  nil
 }

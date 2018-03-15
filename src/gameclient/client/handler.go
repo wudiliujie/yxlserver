@@ -16,6 +16,7 @@ func init() {
 	msg.Processor.SetHandler(&proto.S2C_Login{}, handleLogin)
 	msg.Processor.SetHandler(&proto.S2C_GetInfo{}, handleGetInfo)
 	msg.Processor.SetHandler(&proto.S2C_EnterRoom{}, handleEnterRoom)
+	msg.Processor.SetHandler(&proto.S2C_Fire{}, handleFire)
 }
 func GetGID() uint64 {
 	/*b := make([]byte, 64)
@@ -55,6 +56,7 @@ func handleGetInfo(args []interface{}){
 	log.Debug("%v信息:%v-->%v--->%v--->%v--->%v",GetGID(), atomic.LoadInt32(&LoginCount),atomic.LoadInt32(&LoginCount_Fail),atomic.LoadInt32(&GetInfoCount),atomic.LoadInt32(&EnterRoomCount),atomic.LoadInt32(&EnterRoomCount_Fail))
 
 	sendmsg:=&proto.C2S_EnterRoom{RoomType:0}
+	log.Debug("发送登录房间")
 	agent.WriteMsg(sendmsg)
 }
 func handleEnterRoom(args[]interface{}){
@@ -75,5 +77,12 @@ func handleEnterRoom(args[]interface{}){
 	log.Debug("%v信息:%v-->%v--->%v--->%v--->%v",GetGID(), atomic.LoadInt32(&LoginCount),atomic.LoadInt32(&LoginCount_Fail),atomic.LoadInt32(&GetInfoCount),atomic.LoadInt32(&EnterRoomCount),atomic.LoadInt32(&EnterRoomCount_Fail))
 
 
+}
+var aaaa int32=0
+func handleFire(args[]interface{}){
+	count1:= atomic.AddInt32(&aaaa,1)
+	if count1%10000==0{
+		log.Debug("fire:%v",count1)
+	}
 }
 

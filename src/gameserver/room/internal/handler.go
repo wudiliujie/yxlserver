@@ -25,7 +25,7 @@ func RegisterHandler(chanRPC *chanrpc.Server,module *Module) {
 
 }
 func handleGetInfo(args[] interface{}){
-	//log.Debug("获取用户信息")
+	log.Debug("获取用户信息")
 	//recvMsg:= args[0].(*proto.C2S_GetInfo)
 	hArgs:=args[1].(*HandleArgs)
 	hArgs.P.SendRoleInfo()

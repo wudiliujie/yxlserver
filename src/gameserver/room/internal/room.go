@@ -4,12 +4,13 @@ import (
 	"common/errmsg"
 	"consts"
 	"gameserver/center"
+	"gameserver/players"
 )
 
 type RoomData struct {
 	Id       int32
 	RoomType consts.ROOM_TYPE
-	Players  map[int32]*Player
+	Players  map[int32]*players.Player
 }
 
 var (
@@ -18,7 +19,7 @@ var (
 
 func (m *Module) CreateRoom(roomId int32, roomType consts.ROOM_TYPE) *RoomData {
 	room := &RoomData{Id: roomId, RoomType: roomType}
-	room.Players = make(map[int32]*Player)
+	room.Players = make(map[int32]*players.Player)
 	m.roomMap[roomId] = room
 	//通知主线程创建房间
 	center.ChanRPC.Call0(consts.Center_Rpc_OnCreateRoom, m, roomId, roomType)
@@ -32,7 +33,7 @@ func (m *Module) GetRoom(roomId int32) *RoomData {
 	return nil
 }
 
-func (room *RoomData) AddPlayer(player *Player) int32 {
+func (room *RoomData) AddPlayer(player * players.Player) int32 {
 	room.Players[player.RoleId] = player
 	player.RoomId= room.Id
 	//room.OnRoomNumChange() //添加的时候，直接在主线程加1了

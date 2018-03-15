@@ -16,6 +16,8 @@ const(
 	Center_Rpc_OnCreateRoom="OnCreateRoom" //当创建房间
 	Center_Rpc_OnRoomNumChange="OnRoomNumChange" //当房间人数发生变化
 	Center_Rpc_OnPlayerLogout="OnPlayerLogout" //当玩家下线
+	Center_Rpc_GetBestModule="GetBestModule" //当玩家下线
+	Center_Rpc_PlayerLoginSuccess="PlayerLoginSuccess" //当玩家下线
 
 
 	Center_Rpc_OnPlayerChangeModule="OnPlayerChangeModule" //player module发生变化

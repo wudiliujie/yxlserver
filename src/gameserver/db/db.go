@@ -12,12 +12,12 @@ var (
 )
 func Init()  {
 	var err error
-	db, err = sql.Open("mysql", "root:111111@tcp(127.0.0.1:3306)/yxl_game?charset=utf8&parseTime=true")
+	db, err = sql.Open("mysql", "root:root@tcp(192.168.44.165:3306)/yxl_game?charset=utf8&parseTime=true")
 	if err != nil {
 		log.Error("数据库错误%v", err)
 	}
-	db.SetMaxOpenConns(1000)
-	db.SetMaxIdleConns(1000)
+	db.SetMaxOpenConns(500)
+	db.SetMaxIdleConns(500)
 	db.Ping()
 }
 func ReadRoleInfo(roleId int32, data *[]byte) error {

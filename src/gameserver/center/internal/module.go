@@ -4,9 +4,9 @@ import (
 	"leaf/module"
 	"gameserver/base"
 	"gameserver/common"
-	"math"
 	"time"
 	"leaf/log"
+	"gameserver/players"
 )
 
 var (
@@ -30,7 +30,7 @@ func (m *Module) OnDestroy() {
  log.Debug("销毁centerModule")
 }
 func (m* Module) showInfo(){
-	log.Debug("%v:当前人数：%v, room：%v","center",len(playerMap),len(roomMap))
+	log.Debug("%v:当前人数：%v, room：%v","center",players.GetPlayerNum(),len(roomMap))
 	m.Skeleton.AfterFunc(time.Second*30, m.showInfo)
 
 	destroyRooms := []int32{}
@@ -49,17 +49,4 @@ func (m* Module) showInfo(){
 }
 func RegisterRoomModule( module common.RoomModule){
 	roomModule[module.GetId()] = module
-}
-func  GetBestModule() (module common.RoomModule ,ok bool) {
-	var minCount int32 = math.MaxInt32
-	ok=false
-	for _, _module := range roomModule {
-		count := _module.GetClientCount()
-		if count < minCount {
-			module = _module
-			minCount = count
-			ok=true
-		}
-	}
-	return
 }

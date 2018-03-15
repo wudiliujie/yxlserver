@@ -34,7 +34,7 @@ func (m *ClientModule) OnInit() {
 		 go login(args)
 		 time.Sleep(time.Microsecond*10)
 	}
-	skeleton.AfterFunc(time.Second,SendInfo)
+	skeleton.AfterFunc(time.Millisecond*500,SendInfo)
 }
 func SendInfo(){
 	clientslock.Lock()
@@ -47,7 +47,7 @@ func SendInfo(){
 		}
 	}
 
-	skeleton.AfterFunc(time.Second,SendInfo)
+	skeleton.AfterFunc(time.Millisecond*200,SendInfo)
 }
 
 func (m *ClientModule) OnDestroy() {

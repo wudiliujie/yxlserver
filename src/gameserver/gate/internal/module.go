@@ -5,7 +5,6 @@ import (
 	"gameserver/conf"
 	"common/msg"
 	"leaf/log"
-	"gameserver/center"
 )
 
 type Module struct {
@@ -32,7 +31,7 @@ func (m *Module) OnInit() {
 		OnAgentInit:        onAgentInit,
 		OnAgentDestroy:     onAgentDestroy,
 	}
-	m.Gate.AgentChanRPC =center.ChanRPC
+	//m.Gate.AgentChanRPC =center.ChanRPC
 }
 func (m *Module) OnDestroy() {
 	log.Debug("销毁Gate")
