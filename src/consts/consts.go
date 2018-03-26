@@ -6,6 +6,7 @@ const (
 )
 const (
 	ROOM_MAX_NUM =4	//房间最大人数
+	MAX_HOUSE_NUM=100 //最大位置数量
 )
 
 

@@ -19,6 +19,7 @@ import (
 )
 
 func main() {
+
 	rand.Seed(time.Now().UnixNano())
 	argsLen := len(os.Args)
 	if argsLen < 2 {
