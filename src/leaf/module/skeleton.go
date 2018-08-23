@@ -4,6 +4,8 @@ import (
 	"leaf/chanrpc"
 	"leaf/console"
 	"leaf/go"
+	"leaf/log"
+	"leaf/rtime"
 	"leaf/timer"
 	"time"
 )
@@ -18,6 +20,9 @@ type Skeleton struct {
 	client             *chanrpc.Client
 	server             *chanrpc.Server
 	commandServer      *chanrpc.Server
+	strartTime         int64 //启动时间
+	runTime            int64 //运行时间
+	name               string
 }
 
 func (s *Skeleton) Init() {
@@ -40,6 +45,10 @@ func (s *Skeleton) Init() {
 		s.server = chanrpc.NewServer(0)
 	}
 	s.commandServer = chanrpc.NewServer(0)
+
+	s.strartTime = rtime.Now().UnixNano() / 1e6
+
+	s.AfterFunc(time.Microsecond*30, s.ThreadRun)
 }
 
 func (s *Skeleton) Run(closeSig chan bool) {
@@ -118,4 +127,24 @@ func (s *Skeleton) RegisterChanRPC(id interface{}, f interface{}) {
 
 func (s *Skeleton) RegisterCommand(name string, help string, f interface{}) {
 	console.Register(name, help, f, s.commandServer)
+}
+
+func (s *Skeleton) ThreadRun() {
+	s.AfterFunc(time.Microsecond*30, s.ThreadRun)
+	defer func() {
+		if r := recover(); r != nil {
+			log.Recover(r)
+		}
+	}()
+	now := rtime.Now().UnixNano() / 1e6
+	diff := now - s.strartTime - s.runTime
+	s.runTime += diff
+	if diff < 100000 { //大于100秒，本次循环跳过
+		s.Update(diff)
+	} else {
+		log.Error("%v ThreadRun diff %v", s.name, diff)
+	}
+}
+func (s *Skeleton) Update(diff int64) {
+
 }
