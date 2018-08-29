@@ -38,7 +38,7 @@ func NewProcessor(maxid int) *Processor {
 	p := new(Processor)
 	p.littleEndian = false
 	p.msgID = make(map[reflect.Type]uint16)
-	p.msgInfo= make([]*MsgInfo,maxid)
+	p.msgInfo = make([]*MsgInfo, maxid)
 	return p
 }
 
@@ -62,7 +62,7 @@ func (p *Processor) Register(id uint16, msg proto.Message) uint16 {
 
 	i := new(MsgInfo)
 	i.msgType = msgType
-	p.msgInfo[id] =i
+	p.msgInfo[id] = i
 	//id := uint16(len(p.msgInfo) - 1)
 	p.msgID[msgType] = id
 	return id
@@ -184,4 +184,12 @@ func (p *Processor) Range(f func(id uint16, t reflect.Type)) {
 	for id, i := range p.msgInfo {
 		f(uint16(id), i.msgType)
 	}
+}
+func (p *Processor) GetMsgId(pck interface{}) int32 {
+	msgType := reflect.TypeOf(pck)
+	id, ok := p.msgID[msgType]
+	if !ok {
+		return 0
+	}
+	return int32(id)
 }

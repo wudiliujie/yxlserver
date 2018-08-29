@@ -7,6 +7,7 @@ import (
 
 var (
 	skeleton = base.NewSkeleton()
+	ChanRPC  = skeleton.ChanRPCServer
 )
 
 type AppModule struct {
@@ -15,6 +16,9 @@ type AppModule struct {
 
 func (m *AppModule) OnInit() {
 	m.Skeleton = skeleton
+}
+func (m *AppModule) OnDestroy() {
+
 }
 
 func (m *AppModule) Update(diff int64) {

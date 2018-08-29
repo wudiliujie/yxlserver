@@ -171,3 +171,13 @@ func (p *Processor) Marshal(msg interface{}) ([][]byte, error) {
 	data, err := json.Marshal(m)
 	return [][]byte{data}, err
 }
+func (p *Processor) GetMsgId(pck interface{}) int32 {
+	/*	msgType := reflect.TypeOf(pck)
+		id, ok := p.msgID[msgType]
+		if !ok {
+			return 0
+		}
+		return int32(id)*/
+	log.Fatal("没有实现：GetMsgId")
+	return 0
+}

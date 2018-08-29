@@ -1,28 +1,29 @@
 package client
 
 import (
-	"leaf/network"
 	"leaf/log"
-	"reflect"
+	"leaf/network"
 	"net"
+	"reflect"
 	"sync/atomic"
 
-	"strconv"
-	"crypto/md5"
 	"common/proto"
+	"crypto/md5"
 	"fmt"
+	"strconv"
 	sync "sync"
 )
 
 var (
-	Client		*Agent
-	processor 	network.Processor
-	ClientSN int32
+	Client      *Agent
+	processor   network.Processor
+	ClientSN    int32
 	clientslock = sync.Mutex{}
-	clients = map[int32]*Agent{}
+	clients     = map[int32]*Agent{}
 )
-func GetClientSNNew()int32{
-	return atomic.AddInt32(&ClientSN,1);
+
+func GetClientSNNew() int32 {
+	return atomic.AddInt32(&ClientSN, 1)
 }
 func newAgent(conn *network.TCPConn) network.Agent {
 	c := new(Agent)
@@ -30,25 +31,27 @@ func newAgent(conn *network.TCPConn) network.Agent {
 	c.id = GetClientSNNew()
 	//连接成功
 	//发送登录
-	name :=strconv.Itoa(int(c.id))
+	name := strconv.Itoa(int(c.id))
 	password := "111111"
 	userData.AccountName = name
 	hash := md5.Sum([]byte(password))
 	strMd5 := fmt.Sprintf("%x", hash)
 	msg := &proto.C2S_Login{Name: name, Password: strMd5}
+	log.Debug("发送登录包")
 	c.WriteMsg(msg)
 	clientslock.Lock()
 	defer clientslock.Unlock()
-	clients[c.id]=c
+	clients[c.id] = c
 
 	return c
 }
 
 type Agent struct {
-	id int32
-	conn       	*network.TCPConn
-	userData   	interface{}
+	id       int32
+	conn     *network.TCPConn
+	userData interface{}
 }
+
 func (a *Agent) Run() {
 	for {
 		data, err := a.conn.ReadMsg()
@@ -112,7 +115,7 @@ func (a *Agent) SetUserData(data interface{}) {
 	a.userData = data
 }
 
-func Init(p network.Processor)  {
+func Init(p network.Processor) {
 	processor = p
 }
 
@@ -123,15 +126,15 @@ func Close() {
 	}
 }
 
-func Start(addr string)  *network.TCPClient{
+func Start(addr string) *network.TCPClient {
 	//Close()
 
 	client := new(network.TCPClient)
 	client.Addr = addr
 	client.NewAgent = newAgent
-	client.ConnNum=1
-	client.ConnectInterval=3
-	client.PendingWriteNum=100
+	client.ConnNum = 1
+	client.ConnectInterval = 3
+	client.PendingWriteNum = 100
 	client.Start()
 
 	//log.Release("start connect to %v", addr)
@@ -142,5 +145,5 @@ func Start(addr string)  *network.TCPClient{
 		}
 	}
 	log.Release("connect %v success", addr)*/
-	return  client
+	return client
 }

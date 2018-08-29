@@ -2,20 +2,20 @@ package main
 
 import (
 	"common"
+	"gameserver/conf"
 	"leaf"
 	lconf "leaf/conf"
-	"gameserver/conf"
-	"os"
 	"leaf/log"
-	"gameserver/center"
-	"gameserver/room"
 	"leaf/module"
+	"os"
+
+	"gameserver/app"
+	"gameserver/db"
 	"gameserver/gate"
 	"math/rand"
-	"time"
-	"gameserver/db"
-	 _ "net/http/pprof"
 	"net/http"
+	_ "net/http/pprof"
+	"time"
 )
 
 func main() {
@@ -42,9 +42,7 @@ func main() {
 
 	common.Init()
 
-	modules := []module.Module{center.Module}
-	modules = append(modules, room.CreateModules()...)
-	modules =append(modules,gate.Module)
+	modules := []module.Module{app.Module, gate.Module}
 	go func() {
 		http.ListenAndServe("localhost:6060", nil)
 	}()

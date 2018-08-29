@@ -3,12 +3,15 @@ package gate
 import (
 	"leaf/chanrpc"
 	"leaf/log"
+	"leaf/module"
 	"leaf/network"
 	"net"
 	"reflect"
+	"sync/atomic"
 	"time"
-	"leaf/module"
 )
+
+var sessionId int32 = 0
 
 type Gate struct {
 	MaxConnNum      int
@@ -33,29 +36,17 @@ type Gate struct {
 	TimerDispatcherLen int
 	AsynCallLen        int
 	ChanRPCLen         int
-	OnAgentInit 	   func(Agent)
-	OnAgentDestroy 	   func(Agent)
+	OnAgentInit        func(Agent)
+	OnAgentDestroy     func(Agent)
+	OnReceiveMsg       func(agent Agent, msgId int32, pck interface{})
 }
 
 func (gate *Gate) Run(closeSig chan bool) {
 	newAgent := func(conn network.Conn) network.Agent {
 		a := &agent{conn: conn, gate: gate}
-
-	/*	if gate.ChanRPCLen > 0 {
-			skeleton := &module.Skeleton{
-				GoLen:              gate.GoLen,
-				TimerDispatcherLen: gate.TimerDispatcherLen,
-				AsynCallLen:        gate.AsynCallLen,
-				ChanRPCServer:      chanrpc.NewServer(gate.ChanRPCLen),
-			}
-			skeleton.Init()
-
-			a.skeleton = skeleton
-			a.chanRPC = skeleton.ChanRPCServer
-		}*/
-		if gate.AgentChanRPC != nil {
-			a.chanRPC = gate.AgentChanRPC
-			gate.AgentChanRPC.Go("NewAgent", a)
+		a.id = atomic.AddInt32(&sessionId, 1)
+		if gate.OnAgentInit != nil {
+			gate.OnAgentInit(a)
 		}
 		return a
 	}
@@ -108,11 +99,10 @@ func (gate *Gate) OnDestroy() {}
 
 type agent struct {
 	conn     network.Conn
-	//skeleton *module.Skeleton
-	chanRPC  *chanrpc.Server
 	gate     *Gate
 	userData interface{}
-	module  module.Module
+	module   module.Module
+	id       int32
 }
 
 func (a *agent) Run() {
@@ -125,57 +115,30 @@ func (a *agent) Run() {
 		closeSig <- true
 	}()
 
-	handleMsgData := func(args []interface{}) (error) {
+	handleMsgData := func(args []interface{}) error {
 		if a.gate.Processor != nil {
 			data := args[0].([]byte)
 			msg, err := a.gate.Processor.Unmarshal(data)
+
 			if err != nil {
 				return err
 			}
-
-			err = a.gate.Processor.Route(msg, a)
-			if err != nil {
-				return err
+			msgId := a.gate.Processor.GetMsgId(msg)
+			if a.gate.OnReceiveMsg != nil {
+				a.gate.OnReceiveMsg(a, msgId, msg)
 			}
 		}
 		return nil
 	}
-
-/*	if a.chanRPC != nil {
-		go func() {
-			defer func() {
-				if r := recover(); r != nil {
-					log.Recover(r)
-				}
-
-				if a.gate.OnAgentDestroy != nil {
-					a.gate.OnAgentDestroy(a)
-				}
-			}()
-
-			//a.chanRPC.Register("handleMsgData", handleMsgData)
-
-			if a.gate.OnAgentInit != nil {
-				a.gate.OnAgentInit(a)
-			}
-
-			//a.skeleton.Run(closeSig)
-		}()
-	}*/
-
 	for {
 		data, err := a.conn.ReadMsg()
 		if err != nil {
-			//log.Debug("read message: %v", err)
+			log.Debug("read message: %v", err)
 			break
 		}
 		//等待切换module
 
-		if a.chanRPC == nil {
-			err = handleMsgData([]interface{}{data})
-		} else {
-			err = a.chanRPC.Call0("handleMsgData",a,data)
-		}
+		err = handleMsgData([]interface{}{data})
 		if err != nil {
 			log.Debug("handle message: %v", err)
 			break
@@ -184,12 +147,9 @@ func (a *agent) Run() {
 }
 
 func (a *agent) OnClose() {
-	if a.chanRPC != nil {
+	if a.gate.OnAgentDestroy != nil {
 		//log.Debug("close agent")
-		err := a.chanRPC.Call0("CloseAgent", a)
-		if err != nil {
-			log.Error("chanrpc error: %v", err)
-		}
+		a.gate.OnAgentDestroy(a)
 	}
 }
 
@@ -230,18 +190,9 @@ func (a *agent) UserData() interface{} {
 func (a *agent) SetUserData(data interface{}) {
 	a.userData = data
 }
-
-/*func (a *agent) Skeleton() *module.Skeleton {
-	return a.skeleton
-}*/
-
-func (a *agent) ChanRPC() *chanrpc.Server {
-	return a.chanRPC
-}
-
-func (a *agent) Gate()  *Gate {
+func (a *agent) Gate() *Gate {
 	return a.gate
 }
-func (a* agent)SetChanRPC(rpc *chanrpc.Server){
-	a.chanRPC=rpc
+func (a *agent) GetId() int32 {
+	return a.id
 }

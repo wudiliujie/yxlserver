@@ -2,10 +2,10 @@ package gate
 
 import (
 	"net"
-	"leaf/chanrpc"
 )
 
 type Agent interface {
+	GetId() int32
 	WriteMsg(msg interface{})
 	LocalAddr() net.Addr
 	RemoteAddr() net.Addr
@@ -14,5 +14,4 @@ type Agent interface {
 	UserData() interface{}
 	SetUserData(data interface{})
 	Gate() *Gate
-	SetChanRPC(*chanrpc.Server)
 }
