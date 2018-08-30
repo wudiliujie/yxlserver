@@ -5,7 +5,7 @@ import (
 	"gameserver/common/playerManage"
 	"gameserver/events"
 	"leaf/gate"
-	"leaf/log"
+	"leaf/util"
 )
 
 func init() {
@@ -22,13 +22,14 @@ func OnAgentDestroy(args []interface{}) {
 	agentManage.RemoveAgent(agent)
 }
 func OnReceiveMsg(args []interface{}) {
-	log.Debug("onrece:%v", args)
+	//log.Debug("onrece:%v", args)
 	agent := args[0].(gate.Agent)
 	msgId := args[1].(int32)
 	pck := args[2]
 	var player *playerManage.Player
 	if agent.UserData() == nil {
-		player = playerManage.NewPlayer()
+		userId := util.RandInterval(1, 100)
+		player = playerManage.NewPlayer(userId)
 		agent.SetUserData(player)
 	} else {
 		player = agent.UserData().(*playerManage.Player)

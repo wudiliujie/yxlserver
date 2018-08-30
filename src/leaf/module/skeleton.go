@@ -10,6 +10,10 @@ import (
 	"time"
 )
 
+type IEngine interface {
+	Update(diff int64)
+}
+
 type Skeleton struct {
 	GoLen              int
 	TimerDispatcherLen int
@@ -23,6 +27,7 @@ type Skeleton struct {
 	strartTime         int64 //启动时间
 	runTime            int64 //运行时间
 	name               string
+	Engine             IEngine
 }
 
 func (s *Skeleton) Init() {
@@ -140,7 +145,9 @@ func (s *Skeleton) ThreadRun() {
 	diff := now - s.strartTime - s.runTime
 	s.runTime += diff
 	if diff < 100000 { //大于100秒，本次循环跳过
-		s.Update(diff)
+		if s.Engine != nil {
+			s.Engine.Update(diff)
+		}
 	} else {
 		log.Error("%v ThreadRun diff %v", s.name, diff)
 	}

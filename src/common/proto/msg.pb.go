@@ -83,7 +83,7 @@ func (x PCK) String() string {
 func (PCK) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// db
+// mysql
 type PLAYER_ATTR int32
 
 const (

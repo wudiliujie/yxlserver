@@ -4,6 +4,7 @@ import (
 	"common/proto"
 	"gameclient/base"
 	"gameclient/conf"
+	"leaf/log"
 	"leaf/module"
 	"time"
 )
@@ -41,7 +42,7 @@ func SendInfo() {
 	defer clientslock.Unlock()
 
 	if len(clients) >= conf.Client.ClientNum {
-		//log.Debug("发送信息")
+		log.Debug("发送信息")
 		for _, v := range clients {
 			sendmsg := &proto.C2S_Fire{Angle: 100}
 			v.WriteMsg(sendmsg)

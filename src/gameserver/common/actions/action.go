@@ -9,7 +9,9 @@ import (
 var pckHandleMap = make(map[int32]func(player I.IPlayer, pckMsg interface{}))
 
 func init() {
-	pckHandleMap[int32(proto.PCK_C2S_Login_ID)] = OnLogin
+}
+func RegisterPacket(msgId proto.PCK, f func(player I.IPlayer, pckMsg interface{})) {
+	pckHandleMap[int32(msgId)] = f
 }
 func ActionHandle(player I.IPlayer, msgId int32, pck interface{}) {
 	f, ok := pckHandleMap[msgId]
@@ -18,8 +20,4 @@ func ActionHandle(player I.IPlayer, msgId int32, pck interface{}) {
 	} else {
 		log.Error("msg:%v 没有注册", msgId)
 	}
-}
-
-func OnLogin(player I.IPlayer, pckMsg interface{}) {
-	log.Debug("登录")
 }

@@ -10,6 +10,7 @@ import (
 	"os"
 
 	"gameserver/app"
+	_ "gameserver/common/actions/login"
 	"gameserver/db"
 	"gameserver/gate"
 	"math/rand"
@@ -25,7 +26,7 @@ func main() {
 	if argsLen < 2 {
 		log.Fatal("os args of len(%v) less than 2", argsLen)
 	}
-	db.Init()
+
 	confFileName := os.Args[1]
 	conf.Init(confFileName)
 
@@ -42,7 +43,7 @@ func main() {
 
 	common.Init()
 
-	modules := []module.Module{app.Module, gate.Module}
+	modules := []module.Module{app.Module, gate.Module, db.Module}
 	go func() {
 		http.ListenAndServe("localhost:6060", nil)
 	}()

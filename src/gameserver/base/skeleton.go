@@ -1,10 +1,13 @@
 package base
 
 import (
+	"gameserver/conf"
 	"leaf/chanrpc"
 	"leaf/module"
-	"gameserver/conf"
 )
+
+var APP *module.Skeleton
+var DB *module.Skeleton
 
 func NewSkeleton() *module.Skeleton {
 	skeleton := &module.Skeleton{
