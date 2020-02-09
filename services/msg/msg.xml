@@ -1,0 +1,10 @@
+<packages>
+    <package id="1" n="C2SLogin" d="登录" c="true">
+        <p i="1" n="AccountId" t="int64" d="账号id" />
+        <p i="2" n="UserId" t="int64" d="账号角色id" />
+        <p i="3" n="Token" t="string" d="token" />
+    </package>
+    <package id="2" n="S2CLogin" d="登录返回" c="true">
+        <p i="1" n="Tag" t="int32" d="返回结果" />
+    </package>
+</packages>

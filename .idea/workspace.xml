@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="全部清空，重新写&#10;&#9;//完美 支持多个区，然后就解决合区，夸父的问题&#10;&#9;//一个进程是一个大区，里面分很多小区（每个小区一个携程，还是公用一个携程？），一个小区可以无缝迁移到另外的一个大区里面，&#10;&#9;//每个小区独立的数据：活动，排行榜，&#10;&#9;//网关：登录，维护提示，消息转发">
-      <change afterPath="$PROJECT_DIR$/gateserver/gateserver.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/I/eventcode/eventcode.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateservice/module/gate/gate.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gconf/gconf.go" afterDir="false" />
+    <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="简单的架构">
+      <change afterPath="$PROJECT_DIR$/services/msg/msg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +75,7 @@
   </component>
   <component name="ProjectId" id="1XZ2zziuj2g1pXE2XttQbVpx1iN" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -234,7 +230,8 @@
     <MESSAGE value="修改协议通讯" />
     <MESSAGE value="数据线程读取数据." />
     <MESSAGE value="全部清空，重新写&#10;&#9;//完美 支持多个区，然后就解决合区，夸父的问题&#10;&#9;//一个进程是一个大区，里面分很多小区（每个小区一个携程，还是公用一个携程？），一个小区可以无缝迁移到另外的一个大区里面，&#10;&#9;//每个小区独立的数据：活动，排行榜，&#10;&#9;//网关：登录，维护提示，消息转发" />
-    <option name="LAST_COMMIT_MESSAGE" value="全部清空，重新写&#10;&#9;//完美 支持多个区，然后就解决合区，夸父的问题&#10;&#9;//一个进程是一个大区，里面分很多小区（每个小区一个携程，还是公用一个携程？），一个小区可以无缝迁移到另外的一个大区里面，&#10;&#9;//每个小区独立的数据：活动，排行榜，&#10;&#9;//网关：登录，维护提示，消息转发" />
+    <MESSAGE value="简单的架构" />
+    <option name="LAST_COMMIT_MESSAGE" value="简单的架构" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -249,10 +246,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581242695908" />
-    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1581239743409">
+    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1581242751826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581239743409" />
+    <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581242751826" />
     <state width="1876" height="233" key="GridCell.Tab.0.bottom" timestamp="1581242713131">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -273,14 +270,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581241839062" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1581239749222">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1581242759234">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581239749222" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581242759234" />
     <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581242719045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581242719045" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1581243029868">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581243029868" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
