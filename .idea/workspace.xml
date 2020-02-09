@@ -1,96 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="提交一下">
+    <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="全部清空，重新写&#10;&#9;//完美 支持多个区，然后就解决合区，夸父的问题&#10;&#9;//一个进程是一个大区，里面分很多小区（每个小区一个携程，还是公用一个携程？），一个小区可以无缝迁移到另外的一个大区里面，&#10;&#9;//每个小区独立的数据：活动，排行榜，&#10;&#9;//网关：登录，维护提示，消息转发">
+      <change afterPath="$PROJECT_DIR$/gateserver/gateserver.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/I/eventcode/eventcode.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateservice/module/gate/gate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gconf/gconf.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmd/common/path.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/common/path.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmd/common/writer/writer.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/common/writer/writer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmd/err/err.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/err/err.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/errmsg/err.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/errmsg/err.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/errmsg/err.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/errmsg/err.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/msg/msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/msg/msg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/proto/gen.bat" beforeDir="false" afterPath="$PROJECT_DIR$/common/proto/gen.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/proto/msg.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/proto/msg.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/proto/msg.proto" beforeDir="false" afterPath="$PROJECT_DIR$/common/proto/msg.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/consts/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/consts/consts.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/base/Skeleton.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/client/client.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/client/handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/client/interface.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/client/module.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/conf/conf.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/conf/json.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/app/external.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/app/external.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/app/internal/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/app/internal/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/app/internal/nethandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/app/internal/nethandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/base/skeleton.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/base/skeleton.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/I/IPlayer.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/I/IPlayer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/actions/action.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/actions/action.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/actions/login/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/actions/login/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/agentManage/interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/agentManage/interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/mysql/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/mysql/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/playerManage/player.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/playerManage/player.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/conf/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/conf/json.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/db/external.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/db/external.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/db/internal/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/db/internal/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/db/internal/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/db/internal/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/events/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/events/consts.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/gate/external.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/gate/external.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/gate/internal/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/gate/internal/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/players/player.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/players/player.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/units/monster.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/units/monster.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/TUTORIAL_EN.md" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/TUTORIAL_EN.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/TUTORIAL_ZH.md" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/TUTORIAL_ZH.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/chanrpc/chanrpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/chanrpc/chanrpc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/chanrpc/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/chanrpc/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/cluster/cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/cluster/cluster.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/console/command.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/console/command.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/console/console.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/console/console.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/db/mongodb/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/db/mongodb/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/db/mongodb/mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/db/mongodb/mongodb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/gate/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/gate/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/gate/gate.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/gate/gate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/go/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/go/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/go/go.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/go/go.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/leaf.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/leaf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/log/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/log/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/log/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/log/log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/module/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/module/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/module/skeleton.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/module/skeleton.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/conn.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/json/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/json/json.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/processor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/protobuf/protobuf.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/protobuf/protobuf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/tcp_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/tcp_client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/tcp_conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/tcp_conn.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/tcp_msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/tcp_msg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/tcp_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/tcp_server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/ws_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/ws_client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/ws_conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/ws_conn.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/network/ws_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/ws_server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/recordfile/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/recordfile/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/recordfile/recordfile.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/recordfile/recordfile.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/recordfile/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/recordfile/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/rtime/time.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/rtime/time.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/timer/cronexpr.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/timer/cronexpr.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/timer/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/timer/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/timer/timer.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/timer/timer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/util/ctimer.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/ctimer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/util/deepcopy.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/deepcopy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/util/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/util/map.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/map.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/util/queue/queue.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/queue/queue.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/util/rand.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/rand.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/util/semaphore.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/semaphore.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/version.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/version.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,17 +76,7 @@
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="GoLibraries">
-    <option name="urls">
-      <list>
-        <option value="file://$PROJECT_DIR$" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-65" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1XZ2zziuj2g1pXE2XttQbVpx1iN" />
   <component name="ProjectLevelVcsManager">
@@ -180,6 +88,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -189,18 +98,18 @@
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/services/I" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\work\yxlserver\src\gameserver" />
-      <recent name="D:\work\yxlserver\src\gameserver\app" />
-      <recent name="D:\work\yxlserver\src\gameserver\center\internal" />
-      <recent name="D:\work\yxlserver\bin\conf" />
-      <recent name="D:\work\yxlserver\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\work\yxlserver" />
       <recent name="D:\work\yxlserver\src\gameserver\common" />
@@ -208,18 +117,15 @@
       <recent name="D:\work\yxlserver\src\gameserver\app\internal" />
       <recent name="D:\work\yxlserver\src\gameserver\center\internal" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\yxlserver\services\I" />
+      <recent name="D:\work\yxlserver" />
+      <recent name="D:\work\yxlserver\src\gameserver" />
+      <recent name="D:\work\yxlserver\src\gameserver\app" />
+      <recent name="D:\work\yxlserver\src\gameserver\center\internal" />
+    </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go">
-    <configuration name="err" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
-      <module name="yxlserver" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <go_parameters value="-i" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/src/cmd/err/err.go" />
-      <directory value="$PROJECT_DIR$/" />
-      <output_directory value="$PROJECT_DIR$/bin" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.gateserver">
     <configuration name="gameclient" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="yxlserver" />
       <working_directory value="$PROJECT_DIR$/bin" />
@@ -239,6 +145,24 @@
       <filePath value="$PROJECT_DIR$/src/leaf/leaf.go" />
       <directory value="$PROJECT_DIR$/src/gameserver" />
       <output_directory value="$PROJECT_DIR$/bin" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gateserver" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="yxlserver" />
+      <working_directory value="$PROJECT_DIR$/bin" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/gateserver/gateserver.go" />
+      <package value="yxlserver/gateserver" />
+      <directory value="$PROJECT_DIR$/" />
+      <output_directory value="$PROJECT_DIR$/bin" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build gate.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="yxlserver" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/services/gateservice/module/gate/gate.go" />
+      <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -264,16 +188,18 @@
     <list>
       <item itemvalue="Go Build.gameclient" />
       <item itemvalue="Go Build.gameserver" />
-      <item itemvalue="Go Build.err" />
-      <item itemvalue="Go Test.Example in leaf/chanrpc" />
       <item itemvalue="Go Build.go build main.go" />
+      <item itemvalue="Go Build.go build gate.go" />
+      <item itemvalue="Go Build.gateserver" />
+      <item itemvalue="Go Test.Example in leaf/chanrpc" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.gateserver" />
+        <item itemvalue="Go Build.go build gate.go" />
         <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.gameserver" />
         <item itemvalue="Go Test.Example in leaf/chanrpc" />
-        <item itemvalue="Go Build.err" />
       </list>
     </recent_temporary>
   </component>
@@ -303,28 +229,58 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="提交一下" />
     <MESSAGE value="修改协议通讯" />
     <MESSAGE value="数据线程读取数据." />
-    <option name="LAST_COMMIT_MESSAGE" value="数据线程读取数据." />
+    <MESSAGE value="全部清空，重新写&#10;&#9;//完美 支持多个区，然后就解决合区，夸父的问题&#10;&#9;//一个进程是一个大区，里面分很多小区（每个小区一个携程，还是公用一个携程？），一个小区可以无缝迁移到另外的一个大区里面，&#10;&#9;//每个小区独立的数据：活动，排行榜，&#10;&#9;//网关：登录，维护提示，消息转发" />
+    <option name="LAST_COMMIT_MESSAGE" value="全部清空，重新写&#10;&#9;//完美 支持多个区，然后就解决合区，夸父的问题&#10;&#9;//一个进程是一个大区，里面分很多小区（每个小区一个携程，还是公用一个携程？），一个小区可以无缝迁移到另外的一个大区里面，&#10;&#9;//每个小区独立的数据：活动，排行榜，&#10;&#9;//网关：登录，维护提示，消息转发" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>https://goproxy.cn</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1581239713940">
+    <state x="552" y="177" key="#Go_Modules_(vgo)" timestamp="1581241307457">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581239713940" />
-    <state x="461" y="151" key="SettingsEditor" timestamp="1581239602221">
+    <state x="552" y="177" key="#Go_Modules_(vgo)/0.0.1920.1040@0.0.1920.1040" timestamp="1581241307457" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581242695908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581239602221" />
-    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581239674970">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581242695908" />
+    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1581239743409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581239674970" />
+    <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581239743409" />
+    <state width="1876" height="233" key="GridCell.Tab.0.bottom" timestamp="1581242713131">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581242713131" />
+    <state width="1876" height="233" key="GridCell.Tab.0.center" timestamp="1581242713130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581242713130" />
+    <state width="1876" height="233" key="GridCell.Tab.0.left" timestamp="1581242713130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581242713130" />
+    <state width="1876" height="233" key="GridCell.Tab.0.right" timestamp="1581242713131">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581242713131" />
+    <state x="461" y="151" key="SettingsEditor" timestamp="1581241839062">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581241839062" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1581239749222">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581239749222" />
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581242719045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581242719045" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
