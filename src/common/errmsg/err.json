@@ -1,9 +1,0 @@
-{"errs": [
-  {"n":"SYS_SUCCESS","i":0,"m":"成功"},
-  {"n":"SYS_LOGIN_NOACCOUNT","i":1,"m":"帐号错误"},
-  {"n":"SYS_LOGIN_PASSWORD","i":2,"m":"密码错误"},
-  {"n":"SYS_LOGIN_NO_MODULE","i":3,"m":"没有可用的module"},
-  {"n":"SYS_LOGIN_ENTER_MODULE_ERROR","i":4,"m":"进入模块错误"},
-  {"n":"SYS_LOGIN_ALREAD_ONLINE","i":5,"m":"重复登录"},
-  {"n":"SYS_ROOM_SYSTEM_ERROR","i":101,"m":"系统错误"}
-]}

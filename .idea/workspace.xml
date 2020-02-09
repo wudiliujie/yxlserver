@@ -1,177 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/cmd/err/err.go" line="44" mnemonic="5" />
-    <bookmark url="file://$PROJECT_DIR$/src/gameclient" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="提交一下">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/proto/msg.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/proto/msg.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameclient/client/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameclient/client/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/app/internal/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/app/internal/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/app/internal/nethandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/app/internal/nethandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/base/skeleton.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/base/skeleton.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/actions/action.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/common/actions/action.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/actions/login/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/common/actions/login/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/common/playerManage/player.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/common/playerManage/player.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/db/external.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/db/external.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/db/internal/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/db/internal/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/db/internal/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/db/internal/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/events/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/events/consts.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameserver/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameserver/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leaf/module/skeleton.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/leaf/module/skeleton.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmd/common/path.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/common/path.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmd/common/writer/writer.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/common/writer/writer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmd/err/err.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/err/err.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/errmsg/err.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/errmsg/err.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/errmsg/err.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/errmsg/err.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/msg/msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/msg/msg.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/proto/gen.bat" beforeDir="false" afterPath="$PROJECT_DIR$/common/proto/gen.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/proto/msg.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/proto/msg.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/proto/msg.proto" beforeDir="false" afterPath="$PROJECT_DIR$/common/proto/msg.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/consts/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/consts/consts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameclient/base/Skeleton.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameclient/client/client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameclient/client/handler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameclient/client/interface.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameclient/client/module.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameclient/conf/conf.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameclient/conf/json.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameclient/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/app/external.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/app/external.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/app/internal/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/app/internal/module.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/app/internal/nethandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/app/internal/nethandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/base/skeleton.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/base/skeleton.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/common/I/IPlayer.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/I/IPlayer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/common/actions/action.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/actions/action.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/common/actions/login/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/actions/login/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/common/agentManage/interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/agentManage/interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/common/mysql/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/mysql/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/common/playerManage/player.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/common/playerManage/player.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/conf/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/conf/json.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/db/external.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/db/external.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/db/internal/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/db/internal/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/db/internal/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/db/internal/module.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/events/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/events/consts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/gate/external.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/gate/external.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/gate/internal/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/gate/internal/module.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/players/player.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/players/player.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameserver/units/monster.go" beforeDir="false" afterPath="$PROJECT_DIR$/gameserver/units/monster.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/TUTORIAL_EN.md" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/TUTORIAL_EN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/TUTORIAL_ZH.md" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/TUTORIAL_ZH.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/chanrpc/chanrpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/chanrpc/chanrpc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/chanrpc/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/chanrpc/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/cluster/cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/cluster/cluster.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/console/command.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/console/command.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/console/console.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/console/console.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/db/mongodb/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/db/mongodb/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/db/mongodb/mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/db/mongodb/mongodb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/gate/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/gate/agent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/gate/gate.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/gate/gate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/go/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/go/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/go/go.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/go/go.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/leaf.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/leaf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/log/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/log/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/log/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/log/log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/module/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/module/module.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/module/skeleton.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/module/skeleton.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/agent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/conn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/json/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/json/json.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/protobuf/protobuf.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/protobuf/protobuf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/tcp_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/tcp_client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/tcp_conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/tcp_conn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/tcp_msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/tcp_msg.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/tcp_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/tcp_server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/ws_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/ws_client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/ws_conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/ws_conn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/network/ws_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/network/ws_server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/recordfile/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/recordfile/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/recordfile/recordfile.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/recordfile/recordfile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/recordfile/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/recordfile/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/rtime/time.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/rtime/time.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/timer/cronexpr.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/timer/cronexpr.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/timer/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/timer/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/timer/timer.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/timer/timer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/util/ctimer.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/ctimer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/util/deepcopy.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/deepcopy.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/util/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/util/map.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/map.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/util/queue/queue.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/queue/queue.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/util/rand.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/rand.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/util/semaphore.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/util/semaphore.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leaf/version.go" beforeDir="false" afterPath="$PROJECT_DIR$/leaf/version.go" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1383488930">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="2" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="go" value="132" />
-          <entry key="json" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Go" value="132" />
-          <entry key="JSON" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="go" value="4957" />
-          <entry key="json" value="4" />
-          <entry key="txt" value="19" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.go.postfix.template.usages.trigger" />
-      <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Go" value="4957" />
-          <entry key="JSON" value="4" />
-          <entry key="PLAIN_TEXT" value="19" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gameserver/db/internal/handler.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
-              <folding>
-                <element signature="e#18#151#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/leaf/network/protobuf/protobuf.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="6" column="37" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/go/gopath/src/github.com/golang/protobuf/proto/decode.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="13" />
-              <folding>
-                <element signature="e#1778#1811#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gameserver/common/mysql/db.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
-              <folding>
-                <element signature="e#15#106#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/scope.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="475" column="72" selection-start-line="475" selection-start-column="72" selection-end-line="475" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/field.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/model_struct.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="568" column="22" selection-start-line="568" selection-start-column="22" selection-end-line="568" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/callback_query_preload.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1349">
-              <caret line="330" column="87" selection-start-line="330" selection-start-column="87" selection-end-line="330" selection-end-column="87" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/utils.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-874">
-              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/callback_query.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -228,9 +152,10 @@
       <dir>D:\go\gopath\src\github.com\jinzhu\gorm</dir>
     </dirStrings>
   </component>
-  <component name="GOROOT" path="d:\go" />
+  <component name="GOROOT" path="c:\go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="GoLibraries">
     <option name="urls">
@@ -239,199 +164,36 @@
       </list>
     </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/gameclient/client/handler.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/roommodule.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/room/internal/player.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/room/internal/handler.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/db/db.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/monsters/monster.go" />
-        <option value="$PROJECT_DIR$/bin/conf/gameserver.json" />
-        <option value="$PROJECT_DIR$/src/leaf/util/ctimer.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/room/internal/module.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/units/monster.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/room/internal/room.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/room/internal/roomlogic.go" />
-        <option value="$PROJECT_DIR$/src/consts/consts.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/app/module.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/app/internal/event.go" />
-        <option value="$PROJECT_DIR$/src/leaf/rtime/time.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/t/roommodule.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/players/player.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/player/player.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/app/internal/pckhandler.go" />
-        <option value="$PROJECT_DIR$/src/leaf/util/queue.go" />
-        <option value="$PROJECT_DIR$/src/leaf/util/queue/queue.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/center/internal/handler.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/app/external.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/I.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/I/IPlayer.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/gate/internal/handler.go" />
-        <option value="$PROJECT_DIR$/src/gameclient/conf/json.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/agentManage/interface.go" />
-        <option value="$PROJECT_DIR$/src/gameclient/client/client.go" />
-        <option value="$PROJECT_DIR$/src/leaf/gate/agent.go" />
-        <option value="$PROJECT_DIR$/src/leaf/network/processor.go" />
-        <option value="$PROJECT_DIR$/src/leaf/gate/gate.go" />
-        <option value="$PROJECT_DIR$/src/leaf/network/protobuf/protobuf.go" />
-        <option value="$PROJECT_DIR$/src/leaf/network/json/json.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/gate/internal/module.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/actions/action.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/base/skeleton.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/db/external.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/events/consts.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/actions/login/login.go" />
-        <option value="$PROJECT_DIR$/bin/conf/client.json" />
-        <option value="$PROJECT_DIR$/src/gameserver/app/internal/nethandler.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/app/internal/module.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/db/internal/module.go" />
-        <option value="$PROJECT_DIR$/src/leaf/module/skeleton.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/playerManage/player.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/main.go" />
-        <option value="$PROJECT_DIR$/src/gameclient/client/module.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/common/mysql/db.go" />
-        <option value="$PROJECT_DIR$/src/gameserver/db/internal/handler.go" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1912" />
     <option name="y" value="-65" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
+  <component name="ProjectId" id="1XZ2zziuj2g1pXE2XttQbVpx1iN" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxlserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;yxlserver&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;yxlserver&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;yxlserver&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;yxlserver&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="golang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;yxlserver&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="golang" type="462c0819:PsiDirectoryNode" />
-              <item name="protobuf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;yxlserver&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="golang" type="462c0819:PsiDirectoryNode" />
-              <item name="protobuf" type="462c0819:PsiDirectoryNode" />
-              <item name="proto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;yxlserver&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="jinzhu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxlserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;yxlserver&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="jinzhu" type="462c0819:PsiDirectoryNode" />
-              <item name="gorm" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\work\yxlserver\src\gameserver\common" />
-      <recent name="D:\work\yxlserver\src\gameserver\common\t" />
-      <recent name="D:\work\yxlserver\src\gameserver\app\internal" />
-      <recent name="D:\work\yxlserver\src\gameserver\center\internal" />
-      <recent name="D:\work\yxlserver\src\gameserver\room\internal" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\work\yxlserver\src\gameserver" />
       <recent name="D:\work\yxlserver\src\gameserver\app" />
@@ -439,20 +201,15 @@
       <recent name="D:\work\yxlserver\bin\conf" />
       <recent name="D:\work\yxlserver\src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\yxlserver" />
+      <recent name="D:\work\yxlserver\src\gameserver\common" />
+      <recent name="D:\work\yxlserver\src\gameserver\common\t" />
+      <recent name="D:\work\yxlserver\src\gameserver\app\internal" />
+      <recent name="D:\work\yxlserver\src\gameserver\center\internal" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Go Build.gameclient">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="err" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="yxlserver" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -484,6 +241,14 @@
       <output_directory value="$PROJECT_DIR$/bin" />
       <method v="2" />
     </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="yxlserver" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/gameserver/main.go" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="Example in leaf/chanrpc" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="yxlserver" />
       <working_directory value="$PROJECT_DIR$/src/leaf/chanrpc" />
@@ -501,9 +266,11 @@
       <item itemvalue="Go Build.gameserver" />
       <item itemvalue="Go Build.err" />
       <item itemvalue="Go Test.Example in leaf/chanrpc" />
+      <item itemvalue="Go Build.go build main.go" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.gameserver" />
         <item itemvalue="Go Test.Example in leaf/chanrpc" />
         <item itemvalue="Go Build.err" />
@@ -519,50 +286,6 @@
       <configuration name="Example in leaf/chanrpc" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="1912" y="-65" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13965885" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.21564245" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28938547" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.42122906" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32960895" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32960895" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.32849163" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Tail" order="12" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25" />
-      <window_info id="Structure" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.32911393" />
-      <window_info anchor="bottom" id="Run" order="5" visible="true" weight="0.32911393" />
-      <window_info anchor="bottom" id="Debug" order="6" weight="0.39978904" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -572,28 +295,12 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="提交一下" />
@@ -601,25 +308,40 @@
     <MESSAGE value="数据线程读取数据." />
     <option name="LAST_COMMIT_MESSAGE" value="数据线程读取数据." />
   </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>https://goproxy.cn</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1581239713940">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581239713940" />
+    <state x="461" y="151" key="SettingsEditor" timestamp="1581239602221">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581239602221" />
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581239674970">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581239674970" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/gameserver/db/internal/handler.go</url>
+          <url>file://$PROJECT_DIR$/gameserver/db/internal/handler.go</url>
           <line>22</line>
-          <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://D:/go/gopath/src/github.com/jinzhu/gorm/main.go</url>
           <line>291</line>
-          <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://D:/go/gopath/src/github.com/jinzhu/gorm/scope.go</url>
           <line>484</line>
-          <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -643,362 +365,5 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gameserver/common/I.go" />
-    <entry file="file://$PROJECT_DIR$/src/gameserver/common/I/IPlayer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/gate/internal/handler.go" />
-    <entry file="file://$PROJECT_DIR$/src/gameserver/units/monster.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameclient/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameclient/conf/json.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/common/agentManage/interface.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameclient/client/client.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/gate/agent.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/network/processor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/network/json/json.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="177" column="20" selection-start-line="177" selection-start-column="20" selection-end-line="177" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/recordfile/recordfile.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-684">
-          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/src/runtime/panic.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="504" selection-start-line="504" selection-end-line="504" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/msg/msg.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/gate/gate.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/proto/msg.pb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/gate/internal/module.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="931">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/gate/external.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/go/go.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/chanrpc/example_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="48" column="15" lean-forward="true" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/chanrpc/chanrpc.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="8" selection-end-column="15" />
-          <folding>
-            <element signature="e#17#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/app/external.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/db/external.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#11#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/events/consts.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/common/actions/action.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/conf/client.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/util/queue/queue.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="86" column="22" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/app/internal/nethandler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/base/skeleton.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/app/internal/module.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/module/module.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/module/skeleton.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="142" column="22" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/dialects/mysql/mysql.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/common/actions/login/login.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/db/internal/module.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#18#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameclient/client/module.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/common/playerManage/player.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/search.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="291" selection-start-line="291" selection-end-line="291" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/callback_query.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/scope.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="475" column="72" selection-start-line="475" selection-start-column="72" selection-end-line="475" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/field.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/utils.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-874">
-          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/callback_query_preload.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1349">
-          <caret line="330" column="87" selection-start-line="330" selection-start-column="87" selection-end-line="330" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/jinzhu/gorm/model_struct.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="568" column="22" selection-start-line="568" selection-start-column="22" selection-end-line="568" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/common/mysql/db.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
-          <folding>
-            <element signature="e#15#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/go/gopath/src/github.com/golang/protobuf/proto/decode.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="e#1778#1811#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leaf/network/protobuf/protobuf.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameserver/db/internal/handler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
-          <folding>
-            <element signature="e#18#151#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
