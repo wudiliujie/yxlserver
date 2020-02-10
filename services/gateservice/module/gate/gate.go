@@ -56,7 +56,7 @@ func (m *GateModule) Debug() {
 	log.Debug("gate")
 }
 
-func onReceiveMsg(agent gate.Agent, msgid int32, pck interface{}) {
+func onReceiveMsg(agent gate.Agent, msgid uint16, pck interface{}) {
 	//这里过滤下消息
-	module.OnChanRpcEvent(eventcode.Net_ReceiveMsg, agent, msgid, pck)
+	module.OnChanRpcEvent(eventcode.Net_ReceiveMsg, agent, int32(msgid), pck)
 }

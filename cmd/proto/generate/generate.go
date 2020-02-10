@@ -41,14 +41,26 @@ func (a *Packages) existType(t string) bool {
 func (a *Packages) MakeGo(fileName string) {
 	a.write = &writer.Writer{}
 	a.write.AddLine("package msg")
-	a.write.AddLine(`import "github.com/golang/protobuf/proto"`)
-	a.write.AddLine("type PCK int32")
+	a.write.AddLine("import (")
+	a.write.AddLine(`	"github.com/golang/protobuf/proto"`)
+	a.write.AddLine(`	"github.com/wudiliujie/common/network"`)
+	a.write.AddLine(`	"github.com/wudiliujie/common/network/protobuf"`)
+	a.write.AddLineFmt(")")
+	a.write.AddLineFmt("var Processor = protobuf.NewProcessor()")
+	a.write.AddLineFmt("func init() {")
 	for _, pck := range a.Package {
 		if pck.Id > 0 {
-			a.write.AddLineFmt("const PCKID_%v PCK = %v  //%v", pck.N, pck.Id, pck.D)
+			a.write.AddLineFmt("Processor.Register(PCKID_%v, func() network.IMessage { return new(%v) })", pck.N, pck.N)
+		}
+	}
+	a.write.AddLine("}")
+
+	for _, pck := range a.Package {
+		if pck.Id > 0 {
+			a.write.AddLineFmt("const PCKID_%v  = %v  //%v", pck.N, pck.Id, pck.D)
 		}
 		a.write.AddLineFmt("//%v", pck.D)
-		a.write.AddLineFmt("    type %v struct {", pck.N)
+		a.write.AddLineFmt("type %v struct {", pck.N)
 		for _, p := range pck.Prop {
 			a.write.AddLineFmt("//%v", p.D)
 			a.write.AddLineFmt("%v %v `protobuf:\"%v,%v,%v,name=%v,proto3\" json:\"%v,omitempty\"`", p.N, a.GetType(p), a.GetProtoBufType(p.T), p.I, a.GetOpt(p.Array), p.N, p.N)
@@ -59,7 +71,7 @@ func (a *Packages) MakeGo(fileName string) {
 		a.write.AddLineFmt("func (m *%v) String() string { return proto.CompactTextString(m) }", pck.N)
 		a.write.AddLineFmt("func (*%v) ProtoMessage()    {}", pck.N)
 		if pck.Id > 0 {
-			a.write.AddLineFmt("func (m *%v) GetId() int32   { return int32(PCKID_%v) }", pck.N, pck.N)
+			a.write.AddLineFmt("func (m *%v) GetId() uint16   { return uint16(PCKID_%v) }", pck.N, pck.N)
 		}
 	}
 	rpath.SaveFile(fileName, a.write.Content)
@@ -92,7 +104,7 @@ func (a *Packages) GetOpt(array bool) string {
 }
 func (a *Packages) GetType(p *P) string {
 	if p.Array {
-		if a.existType(p.N) {
+		if a.existType(p.T) {
 			return "[]*" + p.T
 		} else {
 			return "[]" + p.T

@@ -38,5 +38,5 @@ var (
 	// skeleton conf
 	WSAddr     = "0.0.0.0:7777"
 	MaxConnNum = 1000
-	Processor  network.Processor
+	Processor  network.IProcessor
 )
