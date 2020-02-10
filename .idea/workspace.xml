@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="简单的架构">
-      <change afterPath="$PROJECT_DIR$/services/msg/msg.xml" afterDir="false" />
+    <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="准备用xml管理proto包，&#10;直接用proto文件，包id需要写2个地方，不好弄。">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/proto/generate/generate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/proto/proto.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/msg/msg.pb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateserver/gateserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/gateserver/gateserver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/msg/msg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/msg/msg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,54 +23,6 @@
         <option value="Go File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>登录成功</find>
-      <find>创建玩家错误</find>
-      <find>room\internal\module.go</find>
-      <find>登录房间</find>
-      <find>Center_Rpc_OnCreateRoom</find>
-      <find>心跳超时</find>
-      <find>破产</find>
-      <find>购买</find>
-      <find>扣税</find>
-      <find>重置房间</find>
-      <find>recover</find>
-      <find>gameserver/center&quot;</find>
-      <find>gameserver/gate</find>
-      <find>server/gate/internal</find>
-      <find>github.com1/name5566/leafserver/src/server/gate</find>
-      <find>gameserver/center</find>
-      <find>gameserver/app</find>
-      <find>github.com/name5566/leaf/log</find>
-      <find>NewAgent</find>
-      <find>&quot;NewAgent&quot;</find>
-      <find>function not registered</find>
-      <find>C2S_Fire</find>
-      <find>PCK_C2S_Fire_ID</find>
-      <find>Net_ReceiveMsg</find>
-      <find>onrece</find>
-      <find>msgId:</find>
-      <find>消息队列&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</find>
-      <find>ms</find>
-      <find>scan</find>
-      <find>RoleDbInfo</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>leaf/</replace>
-      <replace>proto.</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>D:\go\gopath\src\github.com\heyilin416</dir>
-      <dir>D:\work\yxlserver\src\leaf\chanrpc</dir>
-      <dir>D:\work\yxlserver\src\leaf\</dir>
-      <dir>D:\work\yxlserver\src\gameserver</dir>
-      <dir>D:\work\yxlserver\src\gameclient</dir>
-      <dir>D:\work\yxlserver\src\</dir>
-      <dir>D:\go\gopath\src\github.com\jinzhu\gorm</dir>
-    </dirStrings>
   </component>
   <component name="GOROOT" path="c:\go" />
   <component name="Git.Settings">
@@ -87,6 +46,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
@@ -95,7 +55,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/services/I" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../common" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,7 +63,8 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -121,92 +82,26 @@
       <recent name="D:\work\yxlserver\src\gameserver\center\internal" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.gateserver">
-    <configuration name="gameclient" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="yxlserver" />
-      <working_directory value="$PROJECT_DIR$/bin" />
-      <go_parameters value="-i" />
-      <kind value="DIRECTORY" />
-      <filePath value="$PROJECT_DIR$/src/leaf/leaf.go" />
-      <directory value="$PROJECT_DIR$/src/gameclient" />
-      <output_directory value="$PROJECT_DIR$/bin" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gameserver" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
-      <module name="yxlserver" />
-      <working_directory value="$PROJECT_DIR$/bin" />
-      <go_parameters value="-i" />
-      <parameters value="gameserver.json" />
-      <kind value="DIRECTORY" />
-      <filePath value="$PROJECT_DIR$/src/leaf/leaf.go" />
-      <directory value="$PROJECT_DIR$/src/gameserver" />
-      <output_directory value="$PROJECT_DIR$/bin" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gateserver" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+  <component name="RunManager">
+    <configuration name="proto" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="yxlserver" />
       <working_directory value="$PROJECT_DIR$/bin" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/gateserver/gateserver.go" />
-      <package value="yxlserver/gateserver" />
+      <filePath value="$PROJECT_DIR$/cmd/proto/proto.go" />
+      <package value="yxlserver/cmd/proto" />
       <directory value="$PROJECT_DIR$/" />
       <output_directory value="$PROJECT_DIR$/bin" />
       <method v="2" />
     </configuration>
-    <configuration name="go build gate.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="yxlserver" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/services/gateservice/module/gate/gate.go" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="yxlserver" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/gameserver/main.go" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Example in leaf/chanrpc" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="yxlserver" />
-      <working_directory value="$PROJECT_DIR$/src/leaf/chanrpc" />
-      <go_parameters value="-i" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="leaf/chanrpc" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Example$" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Go Build.gameclient" />
-      <item itemvalue="Go Build.gameserver" />
-      <item itemvalue="Go Build.go build main.go" />
-      <item itemvalue="Go Build.go build gate.go" />
-      <item itemvalue="Go Build.gateserver" />
-      <item itemvalue="Go Test.Example in leaf/chanrpc" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.gateserver" />
-        <item itemvalue="Go Build.go build gate.go" />
-        <item itemvalue="Go Build.go build main.go" />
-        <item itemvalue="Go Build.gameserver" />
-        <item itemvalue="Go Test.Example in leaf/chanrpc" />
+        <item itemvalue="Go Build.proto" />
       </list>
     </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
-  </component>
-  <component name="TestHistory">
-    <history-entry file="Example_in_leaf_chanrpc - 2018.08.30 at 17h 56m 08s.xml">
-      <configuration name="Example in leaf/chanrpc" configurationId="GoTestRunConfiguration" />
-    </history-entry>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -231,7 +126,8 @@
     <MESSAGE value="数据线程读取数据." />
     <MESSAGE value="全部清空，重新写&#10;&#9;//完美 支持多个区，然后就解决合区，夸父的问题&#10;&#9;//一个进程是一个大区，里面分很多小区（每个小区一个携程，还是公用一个携程？），一个小区可以无缝迁移到另外的一个大区里面，&#10;&#9;//每个小区独立的数据：活动，排行榜，&#10;&#9;//网关：登录，维护提示，消息转发" />
     <MESSAGE value="简单的架构" />
-    <option name="LAST_COMMIT_MESSAGE" value="简单的架构" />
+    <MESSAGE value="准备用xml管理proto包，&#10;直接用proto文件，包id需要写2个地方，不好弄。" />
+    <option name="LAST_COMMIT_MESSAGE" value="准备用xml管理proto包，&#10;直接用proto文件，包id需要写2个地方，不好弄。" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -242,46 +138,82 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="177" key="#Go_Modules_(vgo)/0.0.1920.1040@0.0.1920.1040" timestamp="1581241307457" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581242695908">
+    <state x="552" y="177" key="#Inspections" timestamp="1581337146449">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581242695908" />
-    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1581242751826">
+    <state x="552" y="177" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1581337146449" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581338654414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581242751826" />
-    <state width="1876" height="233" key="GridCell.Tab.0.bottom" timestamp="1581242713131">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581338654414" />
+    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1581244434709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581242713131" />
-    <state width="1876" height="233" key="GridCell.Tab.0.center" timestamp="1581242713130">
+    <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581244434709" />
+    <state width="629" height="466" key="DebuggerActiveHint" timestamp="1581338413114">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581242713130" />
-    <state width="1876" height="233" key="GridCell.Tab.0.left" timestamp="1581242713130">
+    <state width="629" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1581338413114" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1581336610357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581242713130" />
-    <state width="1876" height="233" key="GridCell.Tab.0.right" timestamp="1581242713131">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581336610357" />
+    <state width="1876" height="189" key="GridCell.Tab.0.bottom" timestamp="1581339097983">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581242713131" />
-    <state x="461" y="151" key="SettingsEditor" timestamp="1581241839062">
+    <state width="1876" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581339097983" />
+    <state width="1876" height="189" key="GridCell.Tab.0.center" timestamp="1581339097983">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581241839062" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1581242759234">
+    <state width="1876" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581339097983" />
+    <state width="1876" height="189" key="GridCell.Tab.0.left" timestamp="1581339097982">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581242759234" />
+    <state width="1876" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581339097982" />
+    <state width="1876" height="189" key="GridCell.Tab.0.right" timestamp="1581339097983">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581339097983" />
+    <state width="1876" height="189" key="GridCell.Tab.1.bottom" timestamp="1581339097903">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="189" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581339097903" />
+    <state width="1876" height="189" key="GridCell.Tab.1.center" timestamp="1581339097903">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="189" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581339097903" />
+    <state width="1876" height="189" key="GridCell.Tab.1.left" timestamp="1581339097902">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="189" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581339097902" />
+    <state width="1876" height="189" key="GridCell.Tab.1.right" timestamp="1581339097903">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="189" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581339097903" />
+    <state x="461" y="151" key="SettingsEditor" timestamp="1581337787230">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581337787230" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1581244438955">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581244438955" />
+    <state x="454" y="121" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581332789694">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="454" y="121" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1581332789694" />
     <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581242719045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581242719045" />
-    <state x="623" y="225" key="search.everywhere.popup" timestamp="1581243029868">
+    <state x="636" y="251" width="647" height="538" key="find.popup" timestamp="1581337176925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581243029868" />
+    <state x="636" y="251" width="647" height="538" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581337176925" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581339323862">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581339323862" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -300,6 +232,11 @@
           <url>file://D:/go/gopath/src/github.com/jinzhu/gorm/scope.go</url>
           <line>484</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$USER_HOME$/go/pkg/mod/github.com/golang/protobuf@v1.3.1/proto/table_unmarshal.go</url>
+          <line>289</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

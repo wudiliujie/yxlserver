@@ -7,4 +7,12 @@
     <package id="2" n="S2CLogin" d="登录返回" c="true">
         <p i="1" n="Tag" t="int32" d="返回结果" />
     </package>
+    <package n="IntAttr" d="用户int属性">
+        <p i="1" n="K" t="int32" d="Key" />
+        <p i="2" n="V" t="int64" d="value" />
+    </package>
+    <package id="3" n="S2CRoleInfo" d="用户角色信息" c="true">
+        <p i="1" n="UserId" t="int64" d="用户编号" />
+        <p i="2" n="A" t="IntAttr" d="用户属性" a="true" />
+    </package>
 </packages>
