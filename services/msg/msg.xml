@@ -15,4 +15,16 @@
         <p i="1" n="UserId" t="int64" d="用户编号" />
         <p i="2" n="A" t="IntAttr" d="用户属性" a="true" />
     </package>
+    <package n="ServerInfo" d="服务器信息">
+        <p i="1" n="ServerId" t="int64" d="服务器编号" />
+        <p i="2" n="ServerType" t="int64" d="服务器类型" />
+        <p i="3" n="ServerName" t="string" d="服务器名字" />
+        <p i="4" n="ServerAddr" t="string" d="服务器地址" />
+    </package>
+    <package id="4" n="S2SRegisterServerInfo" d="注册服务器信息">
+        <p i="1" n="Info" t="ServerInfo" d="服务器信息" />
+    </package>
+    <package id="5" n="S2SServerInfo" d="发送当前链接的游戏服务器信息到网关">
+        <p i="1" n="Info" t="ServerInfo" d="服务器信息" a="true"/>
+    </package>
 </packages>

@@ -5,10 +5,23 @@ import (
 	"github.com/wudiliujie/common/log"
 	"github.com/wudiliujie/common/module"
 	"yxlserver/services/I/eventcode"
+	"yxlserver/services/conf"
 	"yxlserver/services/gconf"
+	"yxlserver/services/logic/serverManage"
+	"yxlserver/services/msg"
 )
 
 var Module = new(GateModule)
+var netEvent = new(gate.NetEvent)
+
+func init() {
+	gconf.Processor = msg.Processor
+	netEvent.OnAgentInit = onAgentInit
+	netEvent.OnAgentDestroy = onAgentDestroy
+	netEvent.OnReceiveMsg = onReceiveMsg
+	netEvent.Processor = gconf.Processor
+	serverManage.SetNetEvent(netEvent)
+}
 
 type GateModule struct {
 	*gate.Gate
@@ -16,27 +29,23 @@ type GateModule struct {
 
 func (m *GateModule) OnInit() {
 	m.Gate = &gate.Gate{
-		MaxConnNum:      gconf.MaxConnNum,
+		MaxConnNum:      conf.Server.MaxConnNum,
+		WSAddr:          conf.Server.WSAddr,
 		PendingWriteNum: gconf.PendingWriteNum,
 		MaxMsgLen:       gconf.MaxMsgLen,
-		WSAddr:          gconf.WSAddr,
 		HTTPTimeout:     gconf.HTTPTimeout,
-		//CertFile:        conf.Server.CertFile,
-		//KeyFile:         conf.Server.KeyFile,
-		//TCPAddr:            conf.Server.TCPAddr,
+		//CertFile:      conf.Server.CertFile,
+		//KeyFile:       conf.Server.KeyFile,
+		//TCPAddr:       conf.Server.TCPAddr,
 		LenMsgLen:    gconf.LenMsgLen,
 		LittleEndian: gconf.LittleEndian,
-		Processor:    gconf.Processor,
 
 		GoLen:              gconf.AgentGoLen,
 		TimerDispatcherLen: gconf.AgentTimerDispatcherLen,
-		AsynCallLen:        gconf.AgentAsynCallLen,
+		AsynCallLen:        gconf.AgentAsyncCallLen,
 		ChanRPCLen:         gconf.AgentChanRPCLen,
-		OnAgentInit:        onAgentInit,
-		OnAgentDestroy:     onAgentDestroy,
-		OnReceiveMsg:       onReceiveMsg,
+		NetEvent:           netEvent,
 	}
-	gate.ThisGate = m.Gate
 
 }
 func onAgentInit(agent gate.Agent) {
@@ -56,7 +65,20 @@ func (m *GateModule) Debug() {
 	log.Debug("gate")
 }
 
-func onReceiveMsg(agent gate.Agent, msgid uint16, pck interface{}) {
-	//这里过滤下消息
-	module.OnChanRpcEvent(eventcode.Net_ReceiveMsg, agent, int32(msgid), pck)
+func onReceiveMsg(agent gate.Agent, data []byte) {
+	if gconf.Processor != nil {
+		if len(data) < 4 {
+			log.Debug("长度不够")
+			return
+		}
+		//根据agent类型不同，解析不同的头部
+
+		pck, err := gconf.Processor.Unmarshal(data[2:])
+		if err != nil {
+			log.Error("onReceiveMsg %v", err)
+		}
+		log.Debug("*******************%v", pck)
+		module.OnChanRpcEvent(eventcode.Net_ReceiveMsg, agent, pck.GetId(), pck)
+	}
+
 }

@@ -16,13 +16,6 @@ var (
 	AsynCallLen        = 10000
 	ChanRPCLen         = 10000
 
-	// cluster conf
-	HeartBeatInterval = 5
-
-	// room
-	MaxRoomMsgLen       = 50
-	DestroyRoomInterval = 3600
-
 	PendingWriteNum        = 3000
 	MaxMsgLen       uint32 = 409600
 	HTTPTimeout            = 10 * time.Second
@@ -32,11 +25,10 @@ var (
 	// agent conf
 	AgentGoLen              = 500
 	AgentTimerDispatcherLen = 50
-	AgentAsynCallLen        = 50
+	AgentAsyncCallLen       = 50
 	AgentChanRPCLen         = 50
 
 	// skeleton conf
-	WSAddr     = "0.0.0.0:7777"
-	MaxConnNum = 1000
-	Processor  network.IProcessor
+
+	Processor network.IProcessor
 )

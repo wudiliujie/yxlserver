@@ -71,7 +71,7 @@ func (a *Packages) MakeGo(fileName string) {
 		a.write.AddLineFmt("func (m *%v) String() string { return proto.CompactTextString(m) }", pck.N)
 		a.write.AddLineFmt("func (*%v) ProtoMessage()    {}", pck.N)
 		if pck.Id > 0 {
-			a.write.AddLineFmt("func (m *%v) GetId() uint16   { return uint16(PCKID_%v) }", pck.N, pck.N)
+			a.write.AddLineFmt("func (m *%v) GetId() uint16   { return PCKID_%v }", pck.N, pck.N)
 		}
 	}
 	rpath.SaveFile(fileName, a.write.Content)
@@ -109,6 +109,12 @@ func (a *Packages) GetType(p *P) string {
 		} else {
 			return "[]" + p.T
 		}
+	} else {
+		if a.existType(p.T) {
+			return "*" + p.T
+		} else {
+			return p.T
+		}
+
 	}
-	return p.T
 }
