@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="修改proto序列化接口。">
-      <change afterPath="$PROJECT_DIR$/gameserver/main.go" afterDir="false" />
+    <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="单进程单协程多区。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/centerserver/centerserver.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/proto/proto.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/proto/proto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateserver/gateserver.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/logic/serverManage/serverManage.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/module/app/centerApp.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/module/app/gameApp.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/module/app/gameApp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/module/app/gateApp.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/consts/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/consts/consts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/logic/areaManage/areaManage.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/logic/areaManage/areaManage.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/module/gate/gate.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/module/gate/gate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/msg/msg.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/msg/msg.pb.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +143,8 @@
     <MESSAGE value="准备用xml管理proto包，&#10;直接用proto文件，包id需要写2个地方，不好弄。" />
     <MESSAGE value="增加xml生成golang proto 文件。" />
     <MESSAGE value="修改proto序列化接口。" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改proto序列化接口。" />
+    <MESSAGE value="单进程单协程多区。" />
+    <option name="LAST_COMMIT_MESSAGE" value="单进程单协程多区。" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -178,11 +172,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="668" y="162" key="#proto/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583834926354" />
-    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1583838783902">
+    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1583841400112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581508318145" />
-    <state x="594" y="111" key="CommitChangelistDialog2/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838783902" />
+    <state x="594" y="111" key="CommitChangelistDialog2/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841400112" />
     <state width="865" height="466" key="DebuggerActiveHint" timestamp="1581512417991">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

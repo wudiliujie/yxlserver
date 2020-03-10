@@ -20,7 +20,6 @@ func init() {
 	netEvent.OnAgentDestroy = onAgentDestroy
 	netEvent.OnReceiveMsg = onReceiveMsg
 	netEvent.Processor = gconf.Processor
-
 }
 
 type GateModule struct {
