@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	f, err := os.Open(`..\services\msg\proto.xml`)
+	f, err := os.Open(`..\services\msg\msg.xml`)
 	if err != nil {
 		panic(err)
 	}

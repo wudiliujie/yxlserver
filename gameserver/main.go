@@ -9,9 +9,10 @@ import (
 )
 
 func main() {
-	conf.Server.WSAddr = "0.0.0.0:8888"
-	conf.Server.ServerType = consts.ServerType_Center
-	modules := []module.Module{gate.Module, app.CreateCenterAppModule()}
+	conf.Server.ServerId = 1
+	conf.Server.ServerType = consts.ServerType_Server
+	conf.Server.ServerName = "网关"
+	modules := []module.Module{app.CreateGameAppModule(), gate.Module}
 	/*	if conf.Server.DebugAddr != "" {
 		log.Release("启动debug端口:%v", conf.Server.DebugAddr)
 		go http.ListenAndServe(conf.Server.DebugAddr, nil)

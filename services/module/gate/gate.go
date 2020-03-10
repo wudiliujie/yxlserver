@@ -7,7 +7,7 @@ import (
 	"yxlserver/services/I/eventcode"
 	"yxlserver/services/conf"
 	"yxlserver/services/gconf"
-	"yxlserver/services/logic/serverManage"
+
 	"yxlserver/services/msg"
 )
 
@@ -20,7 +20,7 @@ func init() {
 	netEvent.OnAgentDestroy = onAgentDestroy
 	netEvent.OnReceiveMsg = onReceiveMsg
 	netEvent.Processor = gconf.Processor
-	serverManage.SetNetEvent(netEvent)
+
 }
 
 type GateModule struct {

@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e542ddb-ff57-4c46-8a90-2c698c57ea51" name="Default" comment="修改proto序列化接口。">
-      <change afterPath="$PROJECT_DIR$/services/msg/proto.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameserver/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/proto/generate/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/proto/generate/generate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/centerserver/centerserver.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/proto/proto.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/proto/proto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateserver/gateserver.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/logic/serverManage/serverManage.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/module/app/centerApp.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/module/app/gameApp.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/module/app/gameApp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/module/app/gateApp.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/module/gate/gate.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/module/gate/gate.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/msg/msg.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/msg/msg.pb.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,23 +85,13 @@
       <recent name="D:\work\yxlserver\src\gameserver\common" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.proto">
-    <configuration name="centerserver" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+  <component name="RunManager" selected="Go Build.gameserver">
+    <configuration name="gameserver" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="yxlserver" />
       <working_directory value="$PROJECT_DIR$/bin" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/centerserver/centerserver.go" />
-      <package value="yxlserver/centerserver" />
-      <directory value="$PROJECT_DIR$/" />
-      <output_directory value="$PROJECT_DIR$/bin" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gateserver" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
-      <module name="yxlserver" />
-      <working_directory value="$PROJECT_DIR$/bin" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/gateserver/gateserver.go" />
-      <package value="yxlserver/gateserver" />
+      <filePath value="$PROJECT_DIR$/gameserver/main.go" />
+      <package value="yxlserver/gameserver" />
       <directory value="$PROJECT_DIR$/" />
       <output_directory value="$PROJECT_DIR$/bin" />
       <method v="2" />
@@ -113,14 +108,12 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.proto" />
-      <item itemvalue="Go Build.gateserver" />
-      <item itemvalue="Go Build.centerserver" />
+      <item itemvalue="Go Build.gameserver" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.gameserver" />
         <item itemvalue="Go Build.proto" />
-        <item itemvalue="Go Build.gateserver" />
-        <item itemvalue="Go Build.centerserver" />
       </list>
     </recent_temporary>
   </component>
@@ -176,18 +169,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Notifications/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583832147731" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581392283809">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583841310515">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581392283809" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841310515" />
     <state x="668" y="162" key="#proto" timestamp="1583834926354">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="668" y="162" key="#proto/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583834926354" />
-    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1581508318145">
+    <state x="594" y="111" key="CommitChangelistDialog2" timestamp="1583838783902">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581508318145" />
+    <state x="594" y="111" key="CommitChangelistDialog2/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838783902" />
     <state width="865" height="466" key="DebuggerActiveHint" timestamp="1581512417991">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -200,46 +195,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581336610357" />
-    <state width="1877" height="246" key="GridCell.Tab.0.bottom" timestamp="1583838388739">
+    <state width="1877" height="246" key="GridCell.Tab.0.bottom" timestamp="1583841361866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581566304759" />
-    <state width="1877" height="246" key="GridCell.Tab.0.bottom/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838388739" />
-    <state width="1877" height="246" key="GridCell.Tab.0.center" timestamp="1583838388739">
+    <state width="1877" height="246" key="GridCell.Tab.0.bottom/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841361866" />
+    <state width="1877" height="246" key="GridCell.Tab.0.center" timestamp="1583841361866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581566304758" />
-    <state width="1877" height="246" key="GridCell.Tab.0.center/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838388739" />
-    <state width="1877" height="246" key="GridCell.Tab.0.left" timestamp="1583838388739">
+    <state width="1877" height="246" key="GridCell.Tab.0.center/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841361866" />
+    <state width="1877" height="246" key="GridCell.Tab.0.left" timestamp="1583841361866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581566304758" />
-    <state width="1877" height="246" key="GridCell.Tab.0.left/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838388739" />
-    <state width="1877" height="246" key="GridCell.Tab.0.right" timestamp="1583838388739">
+    <state width="1877" height="246" key="GridCell.Tab.0.left/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841361866" />
+    <state width="1877" height="246" key="GridCell.Tab.0.right" timestamp="1583841361866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581566304759" />
-    <state width="1877" height="246" key="GridCell.Tab.0.right/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838388739" />
-    <state width="1877" height="246" key="GridCell.Tab.1.bottom" timestamp="1583838388739">
+    <state width="1877" height="246" key="GridCell.Tab.0.right/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841361866" />
+    <state width="1877" height="246" key="GridCell.Tab.1.bottom" timestamp="1583841313593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="233" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581566304759" />
-    <state width="1877" height="246" key="GridCell.Tab.1.bottom/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838388739" />
-    <state width="1877" height="246" key="GridCell.Tab.1.center" timestamp="1583838388739">
+    <state width="1877" height="246" key="GridCell.Tab.1.bottom/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841313593" />
+    <state width="1877" height="246" key="GridCell.Tab.1.center" timestamp="1583841313593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="233" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581566304759" />
-    <state width="1877" height="246" key="GridCell.Tab.1.center/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838388739" />
-    <state width="1877" height="246" key="GridCell.Tab.1.left" timestamp="1583838388739">
+    <state width="1877" height="246" key="GridCell.Tab.1.center/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841313593" />
+    <state width="1877" height="246" key="GridCell.Tab.1.left" timestamp="1583841313593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="233" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581566304759" />
-    <state width="1877" height="246" key="GridCell.Tab.1.left/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838388739" />
-    <state width="1877" height="246" key="GridCell.Tab.1.right" timestamp="1583838388739">
+    <state width="1877" height="246" key="GridCell.Tab.1.left/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841313593" />
+    <state width="1877" height="246" key="GridCell.Tab.1.right" timestamp="1583841313593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="233" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581566304759" />
-    <state width="1877" height="246" key="GridCell.Tab.1.right/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583838388739" />
+    <state width="1877" height="246" key="GridCell.Tab.1.right/1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583841313593" />
     <state x="461" y="151" key="SettingsEditor" timestamp="1581337787230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -290,7 +285,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/services/logic/serverManage/serverManage.go</url>
-          <line>99</line>
+          <line>98</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
