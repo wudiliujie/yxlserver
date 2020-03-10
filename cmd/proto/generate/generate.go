@@ -2,6 +2,7 @@ package generate
 
 import (
 	"fmt"
+	"github.com/wudiliujie/common/log"
 	"github.com/wudiliujie/common/rpath"
 	"github.com/wudiliujie/common/writer"
 )
@@ -50,14 +51,17 @@ func (a *Packages) MakeGo(fileName string) {
 	a.write.AddLineFmt("func init() {")
 	for _, pck := range a.Package {
 		if pck.Id > 0 {
-			a.write.AddLineFmt("Processor.Register(PCKID_%v, func() network.IMessage { return new(%v) })", pck.N, pck.N)
+			a.write.AddLineFmt("Processor.Register(PCK_%v_ID, func() network.IMessage { return new(%v) })", pck.N, pck.N)
 		}
 	}
 	a.write.AddLine("}")
 
 	for _, pck := range a.Package {
 		if pck.Id > 0 {
-			a.write.AddLineFmt("const PCKID_%v  = %v  //%v", pck.N, pck.Id, pck.D)
+			a.write.AddLineFmt("const PCK_%v_ID  = %v  //%v", pck.N, pck.Id, pck.D)
+		}
+		if pck.N == "DbBattlefieldReport" {
+			log.Debug("ccc")
 		}
 		a.write.AddLineFmt("//%v", pck.D)
 		a.write.AddLineFmt("type %v struct {", pck.N)
@@ -71,18 +75,16 @@ func (a *Packages) MakeGo(fileName string) {
 		a.write.AddLineFmt("func (m *%v) String() string { return proto.CompactTextString(m) }", pck.N)
 		a.write.AddLineFmt("func (*%v) ProtoMessage()    {}", pck.N)
 		if pck.Id > 0 {
-			a.write.AddLineFmt("func (m *%v) GetId() uint16   { return PCKID_%v }", pck.N, pck.N)
+			a.write.AddLineFmt("func (m *%v) GetId() uint16   { return PCK_%v_ID }", pck.N, pck.N)
 		}
 	}
 	rpath.SaveFile(fileName, a.write.Content)
 }
 func (a *Packages) GetProtoBufType(t string) string {
 	switch t {
-	case "string":
+	case "string", "bytes":
 		return "bytes"
-	case "int32":
-		return "varint"
-	case "int64":
+	case "int32", "int64", "bool":
 		return "varint"
 	default:
 		//判断是否是自定义类型， 如果不是报错
@@ -104,14 +106,21 @@ func (a *Packages) GetOpt(array bool) string {
 }
 func (a *Packages) GetType(p *P) string {
 	if p.Array {
+		if p.N == "Data" && p.T == "bytes" {
+			log.Debug("ccc")
+		}
 		if a.existType(p.T) {
 			return "[]*" + p.T
+		} else if p.T == "bytes" {
+			return "[][]byte"
 		} else {
 			return "[]" + p.T
 		}
 	} else {
 		if a.existType(p.T) {
 			return "*" + p.T
+		} else if p.T == "bytes" {
+			return "[]byte"
 		} else {
 			return p.T
 		}
