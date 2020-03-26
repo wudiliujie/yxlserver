@@ -78,7 +78,7 @@ func (a *Packages) MakeGo(fileName string) {
 			a.write.AddLineFmt("func (m *%v) GetId() uint16   { return PCK_%v_ID }", pck.N, pck.N)
 		}
 	}
-	rpath.SaveFile(fileName, a.write.Content)
+	rpath.SaveFile(fileName, a.write.Content.String())
 }
 func (a *Packages) GetProtoBufType(t string) string {
 	switch t {

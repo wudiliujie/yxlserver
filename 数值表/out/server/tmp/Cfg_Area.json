@@ -1,0 +1,62 @@
+[
+	{
+		"AreaId": 1,
+		"AreaName": "1区",
+		"StartDate": 20200101,
+		"State": 1
+	},
+	{
+		"AreaId": 2,
+		"AreaName": "2区",
+		"StartDate": 20200102,
+		"State": 1
+	},
+	{
+		"AreaId": 3,
+		"AreaName": "3区",
+		"StartDate": 20200103,
+		"State": 1
+	},
+	{
+		"AreaId": 4,
+		"AreaName": "4区",
+		"StartDate": 20200104,
+		"State": 1
+	},
+	{
+		"AreaId": 5,
+		"AreaName": "5区",
+		"StartDate": 20200105,
+		"State": 1
+	},
+	{
+		"AreaId": 6,
+		"AreaName": "6区",
+		"StartDate": 20200106,
+		"State": 1
+	},
+	{
+		"AreaId": 7,
+		"AreaName": "7区",
+		"StartDate": 20200107,
+		"State": 1
+	},
+	{
+		"AreaId": 8,
+		"AreaName": "8区",
+		"StartDate": 20200108,
+		"State": 1
+	},
+	{
+		"AreaId": 9,
+		"AreaName": "9区",
+		"StartDate": 20200109,
+		"State": 1
+	},
+	{
+		"AreaId": 10,
+		"AreaName": "10区",
+		"StartDate": 20200110,
+		"State": 1
+	}
+]

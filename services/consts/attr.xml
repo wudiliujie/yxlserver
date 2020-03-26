@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--注释内容
+    i   id
+    n 名字
+    d 描述
+    f   是否是战斗属性
+    c   是否发送给客户端、
+    oc 是否发送给其他人
+    s   是否保存
+    t   类型0:int 1,string
+    r   天变的时候是否重置
+    b  是否保存到用户基础信息
+    k 属性发生变化，是否通知跨服
+    m 是否记录最高值的计数器
+    rank 排行榜属性
+-->
+<attrs>
+    <a i="1" n="AttrType_Hp" d="生命" f="true" c="true" s="true" bf="true"/>
+    <a i="2" n="AttrType_Atk" d="攻击" f="true" c="true" s="true" bf="true"/>
+    <a i="3" n="AttrType_Def" d="防御" f="true" c="true" s="true" bf="true"/>
+    <a i="4" n="AttrType_Hit" d="命中(万分比)" f="true" c="true" s="true"/>
+    <a i="5" n="AttrType_Avd" d="闪避(万分比)" f="true" c="true" s="true"/>
+    <a i="6" n="AttrType_Cri" d="暴击(万分比)" f="true" c="true" s="true"/>
+    <a i="7" n="AttrType_ACri" d="防暴击(万分比)" f="true" c="true" s="true"/>
+    <a i="8" n="AttrType_Speed" d="速度" f="true" c="true" s="true"/>
+    <a i="9" n="AttrType_Atk1" d="无视防御" f="true" c="true" s="true"/>
+    <a i="10" n="AttrType_Def1" d="减免无视" f="true" c="true" s="true"/>
+    <a i="11" n="AttrType_Atk2" d="伤害加深" f="true" c="true" s="true"/>
+    <a i="12" n="AttrType_Def2" d="伤害减少" f="true" c="true" s="true"/>
+    <a i="13" n="AttrType_Atk3" d="伤害增加%" f="true" c="true" s="true"/>
+    <a i="14" n="AttrType_Def3" d="伤害减少%" f="true" c="true" s="true"/>
+    <a i="15" n="AttrType_Atk4" d="暴击伤害增加" f="true" c="true" s="true"/>
+    <a i="16" n="AttrType_Def4" d="暴击伤害减少" f="true" c="true" s="true"/>
+    <a i="17" n="AttrType_Atk5" d="魂概率增加" f="true" c="true" s="true"/>
+    <a i="18" n="AttrType_Def5" d="魂概率减少" f="true" c="true" s="true"/>
+    <a i="19" n="AttrType_Atk6" d="PVP伤害增加(万分比)" f="true" c="true" s="true"/>
+    <a i="20" n="AttrType_Def6" d="PVP伤害减少(万分比)" f="true" c="true" s="true"/>
+    <a i="21" n="AttrType_Atk7" d="PVE伤害增加(万分比)" f="true" c="true" s="true"/>
+    <a i="22" n="AttrType_Def7" d="PVE伤害减少(万分比)" f="true" c="true" s="true"/>
+    <a i="23" n="AttrType_ExtraHurt" d="额外伤害" f="true" c="true" s="true"/>
+    <a i="24" n="AttrType_Atk8" d="PVE首领伤害增加万分比" f="true" c="true" s="true"/>
+
+
+    <a i="51" n="AttrType_Hp_P" d="生命" f="true" c="true" s="true"/>
+    <a i="52" n="AttrType_Atk_P" d="攻击" f="true" c="true" s="true"/>
+    <a i="53" n="AttrType_Def_P" d="防御" f="true" c="true" s="true"/>
+    <a i="54" n="AttrType_Hit_P" d="命中(万分比)" f="true" c="true" s="true"/>
+    <a i="55" n="AttrType_Avd_P" d="闪避(万分比)" f="true" c="true" s="true"/>
+    <a i="56" n="AttrType_Cri_P" d="暴击(万分比)" f="true" c="true" s="true"/>
+    <a i="57" n="AttrType_ACri_P" d="防暴击(万分比)" f="true" c="true" s="true"/>
+    <a i="58" n="AttrType_Speed_P" d="速度" f="true" c="true" s="true"/>
+    <a i="59" n="AttrType_Atk1_P" d="无视防御" f="true" c="true" s="true"/>
+    <a i="60" n="AttrType_Def1_P" d="减免无视" f="true" c="true" s="true"/>
+    <a i="61" n="AttrType_Atk2_P" d="伤害加深" f="true" c="true" s="true"/>
+    <a i="62" n="AttrType_Def2_P" d="伤害减少" f="true" c="true" s="true"/>
+    <a i="63" n="AttrType_Atk3_P" d="伤害增加%" f="true" c="true" s="true"/>
+    <a i="64" n="AttrType_Def3_P" d="伤害减少%" f="true" c="true" s="true"/>
+    <a i="65" n="AttrType_Atk4_P" d="暴击伤害增加" f="true" c="true" s="true"/>
+    <a i="66" n="AttrType_Def4_P" d="暴击伤害减少" f="true" c="true" s="true"/>
+    <a i="67" n="AttrType_Atk5_P" d="魂概率增加" f="true" c="true" s="true"/>
+    <a i="68" n="AttrType_Def5_P" d="魂概率减少" f="true" c="true" s="true"/>
+    <a i="69" n="AttrType_Atk6_P" d="PVP伤害增加(万分比)" f="true" c="true" s="true"/>
+    <a i="70" n="AttrType_Def6_P" d="PVP伤害减少(万分比)" f="true" c="true" s="true"/>
+    <a i="71" n="AttrType_Atk7_P" d="PVE伤害增加(万分比)" f="true" c="true" s="true"/>
+    <a i="72" n="AttrType_Def7_P" d="PVE伤害减少(万分比)" f="true" c="true" s="true"/>
+
+
+    <a i="100" n="AttrType_UserId" d="用户编号,纯客户端用户" s="true" c="true" b="true"/>
+    <a i="101" n="AttrType_Coin1" d="金币(银元宝)" c="true" s="true"/>
+    <a i="102" n="AttrType_Coin2" d="绑定金币（没有用）" c="true" s="true"/>
+    <a i="103" n="AttrType_Coin3" d="仙玉" c="true" s="true"/>
+    <a i="104" n="AttrType_Level" d="等级" c="true" s="true" oc="true" b="true" rank="true"/>
+    <a i="105" n="AttrType_Exp" d="经验" c="true" s="true"/>
+    <a i="106" n="AttrType_Nick" d="昵称" c="true" s="true" oc="true" t="1" b="true"/>
+    <a i="107" n="AttrType_Sex" d="性别" c="true" s="true" oc="true" b="true"/>
+    <a i="108" n="AttrType_LoginAreaId" d="登录区编号" c="true" s="true" b="true"/>
+    <a i="109" n="AttrType_LoginSign" d="登录签名,断线重连用" t="1"/>
+</attrs>

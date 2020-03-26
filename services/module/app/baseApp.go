@@ -4,9 +4,11 @@ import (
 	"github.com/wudiliujie/common/gate"
 	"github.com/wudiliujie/common/log"
 	"github.com/wudiliujie/common/module"
+	"github.com/wudiliujie/common/network"
 	"yxlserver/services/I"
 	"yxlserver/services/I/eventcode"
 	"yxlserver/services/logic/actionManage"
+	_ "yxlserver/services/logic/playerManage/player"
 )
 
 type BaseAppModule struct {
@@ -20,6 +22,7 @@ type BaseAppModule struct {
 
 func (m *BaseAppModule) OnInit() {
 	m.Skeleton = module.NewSkeleton()
+
 	m.agentMap = make(map[int32]gate.Agent)
 	module.RegisterChanRpcEvent(eventcode.Net_AgentInit, m.ChanRPCServer, m.self.OnAgentInit)
 	module.RegisterChanRpcEvent(eventcode.Net_AgentDestroy, m.ChanRPCServer, m.self.OnAgentDestroy)
@@ -45,7 +48,7 @@ func (m *BaseAppModule) OnReceiveMsg(args []interface{}) {
 	log.Debug("BaseAppModule OnReceiveMsg")
 	id := args[1].(uint16)
 	agent.ResetHeart()
-	actionManage.ActionAgentHandle(agent, id, args[2])
+	actionManage.ActionAgentHandle(agent, id, args[2].(network.IMessage))
 
 }
 func (m *BaseAppModule) OnInitComplete(args []interface{}) {

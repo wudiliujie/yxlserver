@@ -1,8 +1,8 @@
 <packages>
     <package id="1" n="C2SLogin" d="登录" c="true">
-        <p i="1" n="AccountId" t="int64" d="账号id" />
+        <p i="1" n="LoginTime" t="int64" d="登录时间(秒)" />
         <p i="2" n="UserId" t="int64" d="账号角色id" />
-        <p i="3" n="Token" t="string" d="token" />
+        <p i="3" n="Sign" t="string" d="Sign" />
     </package>
     <package id="2" n="S2CLogin" d="登录返回" c="true">
         <p i="1" n="Tag" t="int32" d="返回结果" />
@@ -10,6 +10,10 @@
     <package n="IntAttr" d="用户int属性">
         <p i="1" n="K" t="int32" d="Key" />
         <p i="2" n="V" t="int64" d="value" />
+    </package>
+    <package n="StrAttr" d="用户字符串属性">
+        <p i="1" n="K" t="int32" d="Key" />
+        <p i="2" n="V" t="string" d="value" />
     </package>
     <package id="3" n="S2CRoleInfo" d="用户角色信息" c="true">
         <p i="1" n="UserId" t="int64" d="用户编号" />
@@ -26,5 +30,20 @@
     </package>
     <package id="5" n="S2SServerInfo" d="发送当前链接的游戏服务器信息到网关">
         <p i="1" n="Info" t="ServerInfo" d="服务器信息" a="true"/>
+    </package>
+    <package id="0" n="D2SLoadRoleCallback" d="加载用户信息回调">
+        <p i="1" n="Tag" t="int32" d="加载结果"/>
+        <p i="2" n="UserId" t="int64" d="用户编号"/>
+        <p i="3" n="LoginAreaId" t="int64" d="登录区编号"/>
+        <p i="4" n="Data" t="RoleDbData" d="数据库数据"/>
+    </package>
+    <package id="0" n="RoleDbData" d="用户数据库数据">
+        <p i="1" n="A" t="IntAttr" d="int属性"/>
+        <p i="2" n="B" t="StrAttr" d="Str属性"/>
+    </package>
+    <package id="6" n="S2CKill" d="用户提下线">
+        <p i="1" n="Tag" t="int32" d="Tag"/>
+    </package>
+    <package id="7" n="C2SLoginEnd" d="用户登录成功">
     </package>
 </packages>

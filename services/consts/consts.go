@@ -9,11 +9,31 @@ const (
 )
 
 //区状态
-type AreaState int32
+type ServerState int32
 
 const (
-	AreaState_Close    AreaState = 1 //关闭
-	AreaState_Starting AreaState = 2 //启动中
-	AreaState_Run      AreaState = 3 //运行中
-	AreaState_Closeing AreaState = 4 //关闭中
+	ServerState_Close    ServerState = 0 //关闭
+	ServerState_Starting ServerState = 1 //启动中
+	ServerState_Run      ServerState = 2 //运行中
+)
+
+type PlayerState int32
+
+const (
+	PlayerState_Initing = 1
+	PlayerState_OffLine = 2
+	PlayerState_OnLine  = 3
+	PlayerState_Error   = 4
+)
+
+type GradeType int32
+
+const (
+	GradeType_Role    GradeType = 0 //人物
+	GradeType_Pet     GradeType = 1 //宠物
+	GradeType_PetA    GradeType = 2 //仙侣
+	GradeType_Beauty  GradeType = 3 //玄女
+	GradeType_Kid     GradeType = 4 //仙童
+	GradeType_SkyGod  GradeType = 5 //天神
+	GradeType_Therion GradeType = 6 //圣兽
 )
